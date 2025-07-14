@@ -651,6 +651,7 @@ export default function CompanyProfile() {
                                     name: e.target.value,
                                   }))
                                 }
+                                className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                               />
                             </div>
                             <div>
@@ -664,6 +665,7 @@ export default function CompanyProfile() {
                                     position: e.target.value,
                                   }))
                                 }
+                                className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                               />
                             </div>
                           </div>
@@ -680,6 +682,7 @@ export default function CompanyProfile() {
                                     email: e.target.value,
                                   }))
                                 }
+                                className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                               />
                             </div>
                             <div>
@@ -693,6 +696,7 @@ export default function CompanyProfile() {
                                     phone: e.target.value,
                                   }))
                                 }
+                                className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                               />
                             </div>
                           </div>
