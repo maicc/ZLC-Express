@@ -711,7 +711,7 @@ export default function CompanyProfile() {
                                 }))
                               }
                             >
-                              <SelectTrigger>
+                              <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                 <SelectValue />
                               </SelectTrigger>
                               <SelectContent>
@@ -728,13 +728,14 @@ export default function CompanyProfile() {
                               </SelectContent>
                             </Select>
                           </div>
-                          <div className="flex justify-end gap-2">
+                          <div className="flex justify-end gap-3">
                             <Button
                               variant="outline"
                               onClick={() => {
                                 setShowContactDialog(false);
                                 setEditingContact(null);
                               }}
+                              className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-gray-500 hover:bg-zlc-gray-50 transition-all duration-200"
                             >
                               Cancelar
                             </Button>
@@ -744,7 +745,9 @@ export default function CompanyProfile() {
                                   ? handleUpdateContact
                                   : handleAddContact
                               }
+                              className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
                             >
+                              <Plus className="h-4 w-4 mr-2" />
                               {editingContact ? "Actualizar" : "Agregar"}
                             </Button>
                           </div>
