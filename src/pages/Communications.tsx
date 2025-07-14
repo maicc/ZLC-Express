@@ -218,8 +218,9 @@ function Communications() {
                           return (
                             <div
                               key={thread.id}
-                              className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors ${selectedThread === thread.id ? "bg-blue-50" : ""
-                                }`}
+                              className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors ${
+                                selectedThread === thread.id ? "bg-blue-50" : ""
+                              }`}
                               onClick={() => setSelectedThread(thread.id)}
                             >
                               <div className="flex items-start justify-between mb-2">
@@ -234,15 +235,15 @@ function Communications() {
                                 <div className="flex items-center gap-2">
                                   {thread.unreadCount > 0 && (
                                     <Badge className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-
                                       {thread.unreadCount}
                                     </Badge>
                                   )}
                                   <div
-                                    className={`w-2 h-2 rounded-full ${supplier?.isOnline
-                                      ? "bg-green-500"
-                                      : "bg-gray-300"
-                                      }`}
+                                    className={`w-2 h-2 rounded-full ${
+                                      supplier?.isOnline
+                                        ? "bg-green-500"
+                                        : "bg-gray-300"
+                                    }`}
                                   />
                                 </div>
                               </div>
@@ -282,18 +283,25 @@ function Communications() {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Tab Navigation */}
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-2 mb-6">
                 <Button
                   onClick={() => setActiveTab("chat")}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "chat"
-                    ? "bg-[#003566] text-white"
-                    : "bg-white text-black border border-gray-300 hover:bg-gray-100"
-                    }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all border-2 ${
+                    activeTab === "chat"
+                      ? "bg-zlc-blue-600 text-white border-zlc-blue-600 shadow-md"
+                      : "bg-white text-zlc-gray-700 border-zlc-gray-300 hover:bg-zlc-gray-50 hover:border-zlc-blue-300"
+                  }`}
                 >
                   <MessageSquare className="h-4 w-4" />
                   Chat
                   {unreadMessagesCount > 0 && (
-                    <Badge className="bg-[#e0e0e0] text-gray-800 text-xs">
+                    <Badge
+                      className={`text-xs ml-1 ${
+                        activeTab === "chat"
+                          ? "bg-white text-zlc-blue-600"
+                          : "bg-red-100 text-red-700 border border-red-200"
+                      }`}
+                    >
                       {unreadMessagesCount}
                     </Badge>
                   )}
@@ -301,20 +309,26 @@ function Communications() {
 
                 <Button
                   onClick={() => setActiveTab("notifications")}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === "notifications"
-                      ? "bg-[#003566] text-white"
-                      : "bg-white text-black border border-gray-300 hover:bg-gray-100"
-                    }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all border-2 ${
+                    activeTab === "notifications"
+                      ? "bg-zlc-blue-600 text-white border-zlc-blue-600 shadow-md"
+                      : "bg-white text-zlc-gray-700 border-zlc-gray-300 hover:bg-zlc-gray-50 hover:border-zlc-blue-300"
+                  }`}
                 >
                   <Bell className="h-4 w-4" />
                   Notificaciones
                   {unreadNotificationsCount > 0 && (
-                    <Badge className="bg-[#e0e0e0] text-gray-800 text-xs">
+                    <Badge
+                      className={`text-xs ml-1 ${
+                        activeTab === "notifications"
+                          ? "bg-white text-zlc-blue-600"
+                          : "bg-red-100 text-red-700 border border-red-200"
+                      }`}
+                    >
                       {unreadNotificationsCount}
                     </Badge>
                   )}
                 </Button>
-
               </div>
 
               {/* Content */}
