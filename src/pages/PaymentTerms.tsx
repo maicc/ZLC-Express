@@ -168,7 +168,10 @@ export default function PaymentTerms() {
                 onOpenChange={setShowUploadDialog}
               >
                 <DialogTrigger asChild>
-                  <Button variant="outline">
+                  <Button
+                    variant="outline"
+                    className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
+                  >
                     <Upload className="h-4 w-4 mr-2" />
                     Subir Documento
                   </Button>
@@ -251,7 +254,7 @@ export default function PaymentTerms() {
                 onOpenChange={setShowCreditRequestDialog}
               >
                 <DialogTrigger asChild>
-                  <Button className="bg-zlc-blue-600 hover:bg-zlc-blue-700">
+                  <Button className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200">
                     <Plus className="h-4 w-4 mr-2" />
                     Solicitar Crédito
                   </Button>
@@ -706,7 +709,8 @@ export default function PaymentTerms() {
                   <strong>Métodos de Pago Recomendados:</strong>
                   <br />• <strong>T/T:</strong> Para pedidos pequeños y medianos
                   <br />• <strong>LC:</strong> Para pedidos grandes (+$50K)
-                  <br />• <strong>Crédito:</strong> Para clientes verificados
+                  <br />
+                  ��� <strong>Crédito:</strong> Para clientes verificados
                 </AlertDescription>
               </Alert>
 
@@ -737,7 +741,7 @@ export default function PaymentTerms() {
               <Alert>
                 <Building className="h-4 w-4" />
                 <AlertDescription>
-                  <strong>¿Necesita ayuda con pagos?</strong>
+                  <strong>��Necesita ayuda con pagos?</strong>
                   <br />
                   Nuestro equipo financiero puede asistirle con configuración de
                   métodos de pago y gestión de crédito.
