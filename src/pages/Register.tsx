@@ -78,8 +78,6 @@ const formSchema = z
     path: ["confirmPassword"],
   });
 
-
-
 // Supplier-specific form schema
 const supplierFormSchema = z
   .object({
@@ -754,10 +752,11 @@ export default function Register() {
                   {steps.map((step, index) => (
                     <div key={step.id} className="flex items-center ">
                       <div
-                        className={`flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300  ${currentStep >= step.id
-                          ? "border-gray-300 bg-blue-600 text-white"
-                          : "border-gray-300 bg-blue-600 text-white"
-                          }`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300  ${
+                          currentStep >= step.id
+                            ? "border-gray-300 bg-blue-600 text-white"
+                            : "border-gray-300 bg-blue-600 text-white"
+                        }`}
                       >
                         {currentStep > step.id ? (
                           <CheckCircle className="h-5 w-5 " />
@@ -775,11 +774,11 @@ export default function Register() {
                 <Progress value={progress} className="h-2 bg-blue-600 " />
                 <div className="mt-2 text-center ">
                   <span className="text-sm text-gray-600  ">
-                    Paso {currentStep} de {steps.length}: {steps[currentStep - 1].title}
+                    Paso {currentStep} de {steps.length}:{" "}
+                    {steps[currentStep - 1].title}
                   </span>
                 </div>
               </div>
-
 
               {/* Form */}
               <Card className="bg-white border border-gray-200 shadow-md rounded-lg">
@@ -818,9 +817,10 @@ export default function Register() {
                               name="companyName"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel >Nombre de la Empresa *</FormLabel>
+                                  <FormLabel>Nombre de la Empresa *</FormLabel>
                                   <FormControl>
-                                    <Input className="bg-white border border-black"
+                                    <Input
+                                      className="bg-white border border-black"
                                       placeholder="Ej: Importadora del Caribe S.A."
                                       {...field}
                                     />
@@ -839,7 +839,8 @@ export default function Register() {
                                     Número de Registro Fiscal (NIT/RUC) *
                                   </FormLabel>
                                   <FormControl>
-                                    <Input className="bg-white border border-black"
+                                    <Input
+                                      className="bg-white border border-black"
                                       placeholder="Ej: 3-101-123456"
                                       {...field}
                                     />
@@ -860,7 +861,7 @@ export default function Register() {
                                 render={({ field }) => (
                                   <FormItem>
                                     <FormLabel>País de Operación *</FormLabel>
-                                    <FormControl >
+                                    <FormControl>
                                       <SearchableCountrySelect
                                         value={field.value}
                                         onValueChange={field.onChange}
@@ -873,7 +874,6 @@ export default function Register() {
                                   </FormItem>
                                 )}
                               />
-
 
                               <FormField
                                 control={form.control}
@@ -920,7 +920,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Nombre Completo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: Juan Carlos Pérez"
                                         {...field}
                                       />
@@ -937,7 +938,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Cargo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: Gerente de Compras"
                                         {...field}
                                       />
@@ -956,7 +958,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Email Corporativo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         type="email"
                                         placeholder="nombre@empresa.com"
                                         {...field}
@@ -1005,7 +1008,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Teléfono *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="+506 2234-5678"
                                         {...field}
                                       />
@@ -1028,7 +1032,7 @@ export default function Register() {
                                 <FormItem>
                                   <FormLabel>Dirección *</FormLabel>
                                   <FormControl>
-                                    <Textarea 
+                                    <Textarea
                                       placeholder="Ej: Calle 15, Avenida 3-5, Edificio Corporativo, Oficina 502"
                                       className="resize-none border border-black"
                                       rows={3}
@@ -1188,7 +1192,11 @@ export default function Register() {
                                 <FormItem>
                                   <FormLabel>Código Postal *</FormLabel>
                                   <FormControl>
-                                    <Input className="border border-black" placeholder="Ej: 10101" {...field} />
+                                    <Input
+                                      className="border border-black"
+                                      placeholder="Ej: 10101"
+                                      {...field}
+                                    />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -1208,7 +1216,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Contraseña *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         type="password"
                                         placeholder="Mínimo 8 caracteres"
                                         {...field}
@@ -1232,7 +1241,8 @@ export default function Register() {
                                       Confirmar Contraseña *
                                     </FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         type="password"
                                         placeholder="Repita la contraseña"
                                         {...field}
@@ -1374,7 +1384,8 @@ export default function Register() {
                                     Nombre Legal de la Empresa *
                                   </FormLabel>
                                   <FormControl>
-                                    <Input className="border border-black"
+                                    <Input
+                                      className="border border-black"
                                       placeholder="Ej: Textiles Modernos S.A."
                                       {...field}
                                     />
@@ -1392,7 +1403,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Número de RUC *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: 8-123-12345"
                                         {...field}
                                       />
@@ -1478,14 +1490,14 @@ export default function Register() {
                                 Adjunte los documentos necesarios para la
                                 verificación
                               </p>
-                              <Input 
+                              <Input
                                 type="file"
                                 multiple
                                 accept=".pdf,.jpg,.jpeg,.png"
                                 onChange={(e) =>
                                   handleFileUpload(e.target.files)
                                 }
-                                className="mb-3 border border-black" 
+                                className="mb-3 border border-black"
                               />
                               {uploadedDocuments.length > 0 && (
                                 <div className="space-y-2">
@@ -1535,7 +1547,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Nombre Completo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: Juan Carlos Pérez"
                                         {...field}
                                       />
@@ -1552,7 +1565,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Cargo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: Gerente de Ventas"
                                         {...field}
                                       />
@@ -1571,7 +1585,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Email Corporativo *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         type="email"
                                         placeholder="nombre@empresa.com"
                                         {...field}
@@ -1620,7 +1635,8 @@ export default function Register() {
                                       Teléfono de Contacto *
                                     </FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: +507 6234-5678"
                                         {...field}
                                       />
@@ -1694,7 +1710,8 @@ export default function Register() {
                                   <FormItem>
                                     <FormLabel>Ciudad *</FormLabel>
                                     <FormControl>
-                                      <Input className="border border-black"
+                                      <Input
+                                        className="border border-black"
                                         placeholder="Ej: Colón"
                                         {...field}
                                       />
@@ -1714,7 +1731,11 @@ export default function Register() {
                                     Código Postal (Opcional)
                                   </FormLabel>
                                   <FormControl>
-                                    <Input className="border border-black" placeholder="Ej: 50000" {...field} />
+                                    <Input
+                                      className="border border-black"
+                                      placeholder="Ej: 50000"
+                                      {...field}
+                                    />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -1812,14 +1833,14 @@ export default function Register() {
                               )}
                             />
 
-                            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
                               <div className="flex items-start gap-3">
-                                <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
+                                <AlertCircle className="h-5 w-5 text-amber-700 mt-0.5" />
                                 <div>
-                                  <h4 className="font-medium text-yellow-800">
+                                  <h4 className="font-medium text-amber-900">
                                     Proceso de Verificación
                                   </h4>
-                                  <p className="text-sm text-yellow-700 mt-1">
+                                  <p className="text-sm text-amber-800 mt-1">
                                     Su empresa será verificada manualmente. El
                                     proceso puede tardar de{" "}
                                     <strong>1 a 3 días hábiles</strong>.
@@ -1846,7 +1867,11 @@ export default function Register() {
                           </Button>
 
                           {currentStep < steps.length ? (
-                            <Button type="button" onClick={nextStep} className="bg-zlc-blue-800 hover:bg-zlc-blue-900">
+                            <Button
+                              type="button"
+                              onClick={nextStep}
+                              className="bg-zlc-blue-800 hover:bg-zlc-blue-900"
+                            >
                               Siguiente
                               <ArrowRight className="ml-2 h-4 w-4 " />
                             </Button>
