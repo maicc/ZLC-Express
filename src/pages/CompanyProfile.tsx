@@ -841,12 +841,15 @@ export default function CompanyProfile() {
                       onOpenChange={setShowPaymentDialog}
                     >
                       <DialogTrigger asChild>
-                        <Button size="sm">
+                        <Button
+                          size="sm"
+                          className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
+                        >
                           <Plus className="h-4 w-4 mr-2" />
                           Agregar Método
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="max-w-2xl bg-white border-2 border-zlc-gray-200 shadow-lg">
                         <DialogHeader>
                           <DialogTitle>Agregar Método de Pago</DialogTitle>
                           <DialogDescription>
