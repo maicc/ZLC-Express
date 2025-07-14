@@ -368,7 +368,7 @@ export default function MyOrders() {
                     value={state.filters.status || "all"}
                     onValueChange={handleStatusFilter}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                       <SelectValue placeholder="Todos los estados" />
                     </SelectTrigger>
                     <SelectContent>
@@ -394,11 +394,11 @@ export default function MyOrders() {
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal",
-                          !dateFrom && "text-muted-foreground",
+                          "w-full justify-start text-left font-normal h-11 border-2 border-zlc-gray-200 bg-white hover:bg-zlc-gray-50 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg",
+                          !dateFrom ? "text-zlc-gray-400" : "text-zlc-gray-900",
                         )}
                       >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        <CalendarIcon className="mr-2 h-4 w-4 text-zlc-gray-500" />
                         {dateFrom ? (
                           format(dateFrom, "PP", { locale: es })
                         ) : (
@@ -425,11 +425,11 @@ export default function MyOrders() {
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal",
-                          !dateTo && "text-muted-foreground",
+                          "w-full justify-start text-left font-normal h-11 border-2 border-zlc-gray-200 bg-white hover:bg-zlc-gray-50 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg",
+                          !dateTo ? "text-zlc-gray-400" : "text-zlc-gray-900",
                         )}
                       >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        <CalendarIcon className="mr-2 h-4 w-4 text-zlc-gray-500" />
                         {dateTo ? (
                           format(dateTo, "PP", { locale: es })
                         ) : (
