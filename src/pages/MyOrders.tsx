@@ -580,6 +580,7 @@ export default function MyOrders() {
                               variant="outline"
                               size="sm"
                               onClick={() => navigate(`/order/${order.id}`)}
+                              className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                             >
                               <Eye className="h-4 w-4 mr-2" />
                               Ver Detalles
