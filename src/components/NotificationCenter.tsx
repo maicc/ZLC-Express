@@ -197,7 +197,7 @@ export function NotificationCenter({
         <div className="max-h-[600px] overflow-y-auto">
           {filteredNotifications.length === 0 ? (
             <div className="p-8 text-center text-gray-500">
-              <Bell className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+              <Bell className="h-12 w-12 mx-auto mb-4 text-gray-400" />
               <p className="text-lg font-medium mb-2">No hay notificaciones</p>
               <p className="text-sm">
                 {filter === "unread"
