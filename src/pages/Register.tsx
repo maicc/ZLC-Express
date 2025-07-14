@@ -886,7 +886,7 @@ export default function Register() {
                                       defaultValue={field.value}
                                     >
                                       <FormControl>
-                                        <SelectTrigger className="h-12 rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zlc-blue-500">
+                                        <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                           <SelectValue placeholder="Seleccione un sector" />
                                         </SelectTrigger>
                                       </FormControl>
@@ -1425,7 +1425,7 @@ export default function Register() {
                                         value={field.value}
                                         onValueChange={field.onChange}
                                       >
-                                        <SelectTrigger>
+                                        <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                           <SelectValue placeholder="Seleccione un sector" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -1683,7 +1683,7 @@ export default function Register() {
                                         value={field.value}
                                         onValueChange={field.onChange}
                                       >
-                                        <SelectTrigger>
+                                        <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                           <SelectValue placeholder="Seleccione provincia" />
                                         </SelectTrigger>
                                         <SelectContent>
