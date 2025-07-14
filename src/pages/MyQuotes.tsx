@@ -317,7 +317,7 @@ export default function MyQuotes() {
                 </p>
                 <Button
                   asChild
-                  className="bg-zlc-blue-600 hover:bg-zlc-blue-700"
+                  className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
                 >
                   <Link to="/categories">Explorar Productos</Link>
                 </Button>
@@ -442,6 +442,7 @@ export default function MyQuotes() {
                               variant="outline"
                               size="sm"
                               onClick={() => setSelectedQuote(quote)}
+                              className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                             >
                               <Eye className="h-4 w-4 mr-1" />
                               Ver Detalles
@@ -556,7 +557,11 @@ export default function MyQuotes() {
                           </DialogContent>
                         </Dialog>
 
-                        <Button variant="outline" size="sm">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
+                        >
                           <Download className="h-4 w-4 mr-1" />
                           Descargar
                         </Button>
@@ -564,7 +569,7 @@ export default function MyQuotes() {
                         {quote.status === "counter-offer" && (
                           <Button
                             size="sm"
-                            className="bg-green-600 hover:bg-green-700"
+                            className="bg-green-600 hover:bg-green-700 border-2 border-green-600 hover:border-green-700 shadow-md transition-all duration-200"
                           >
                             Aceptar Oferta
                           </Button>
@@ -573,7 +578,7 @@ export default function MyQuotes() {
                         {quote.status === "accepted" && (
                           <Button
                             size="sm"
-                            className="bg-zlc-blue-600 hover:bg-zlc-blue-700"
+                            className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
                           >
                             Proceder con Orden
                           </Button>
