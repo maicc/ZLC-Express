@@ -371,6 +371,7 @@ export default function CompanyProfile() {
                           setIsEditing(true);
                         }
                       }}
+                      className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                     >
                       <Edit className="h-4 w-4 mr-2" />
                       {isEditing ? "Guardar" : "Editar"}
@@ -618,12 +619,15 @@ export default function CompanyProfile() {
                       onOpenChange={setShowContactDialog}
                     >
                       <DialogTrigger asChild>
-                        <Button size="sm">
+                        <Button
+                          size="sm"
+                          className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
+                        >
                           <Plus className="h-4 w-4 mr-2" />
                           Agregar Contacto
                         </Button>
                       </DialogTrigger>
-                      <DialogContent>
+                      <DialogContent className="bg-white border-2 border-zlc-gray-200 shadow-lg">
                         <DialogHeader>
                           <DialogTitle>
                             {editingContact
