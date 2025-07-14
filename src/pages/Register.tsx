@@ -1159,7 +1159,7 @@ export default function Register() {
                                           availableCities.length === 0
                                         }
                                       >
-                                        <SelectTrigger>
+                                        <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                           <SelectValue
                                             placeholder={
                                               !selectedState
