@@ -541,7 +541,7 @@ export default function PaymentTerms() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Button
                       variant="outline"
-                      className="h-auto p-4 justify-start"
+                      className="h-auto p-4 justify-start border-2 border-zlc-gray-200 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <Download className="h-5 w-5 text-blue-600" />
@@ -558,7 +558,7 @@ export default function PaymentTerms() {
 
                     <Button
                       variant="outline"
-                      className="h-auto p-4 justify-start"
+                      className="h-auto p-4 justify-start border-2 border-zlc-gray-200 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <Download className="h-5 w-5 text-green-600" />
@@ -575,7 +575,7 @@ export default function PaymentTerms() {
 
                     <Button
                       variant="outline"
-                      className="h-auto p-4 justify-start"
+                      className="h-auto p-4 justify-start border-2 border-zlc-gray-200 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <Download className="h-5 w-5 text-purple-600" />
@@ -592,7 +592,7 @@ export default function PaymentTerms() {
 
                     <Button
                       variant="outline"
-                      className="h-auto p-4 justify-start"
+                      className="h-auto p-4 justify-start border-2 border-zlc-gray-200 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 transition-all duration-200"
                     >
                       <div className="flex items-center gap-3">
                         <Download className="h-5 w-5 text-orange-600" />
@@ -735,15 +735,24 @@ export default function PaymentTerms() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
+                    >
                       <Upload className="h-4 w-4 mr-2" />
                       Subir Comprobante T/T
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
+                    >
                       <FileText className="h-4 w-4 mr-2" />
                       Generar Solicitud LC
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
+                    >
                       <CreditCard className="h-4 w-4 mr-2" />
                       Consultar Estado de Crédito
                     </Button>
