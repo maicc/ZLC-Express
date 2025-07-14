@@ -176,7 +176,7 @@ export default function PaymentTerms() {
                     Subir Documento
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="bg-white border-2 border-zlc-gray-200 shadow-lg">
                   <DialogHeader>
                     <DialogTitle>Subir Documento de Pago</DialogTitle>
                     <DialogDescription>
@@ -196,7 +196,7 @@ export default function PaymentTerms() {
                             documentType: e.target.value,
                           }))
                         }
-                        className="w-full p-2 border rounded-md"
+                        className="w-full p-3 border-2 border-zlc-gray-200 rounded-lg bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200"
                       >
                         <option value="">Seleccione tipo</option>
                         <option value="tt_receipt">
@@ -224,6 +224,8 @@ export default function PaymentTerms() {
                           }))
                         }
                         placeholder="Describa el documento..."
+                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg p-3"
+                        rows={3}
                       />
                     </div>
                     <div>
@@ -233,17 +235,21 @@ export default function PaymentTerms() {
                         type="file"
                         onChange={handleFileUpload}
                         accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                        className="w-full p-2 border rounded-md"
+                        className="w-full p-3 border-2 border-zlc-gray-200 rounded-lg bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-zlc-blue-50 file:text-zlc-blue-700 hover:file:bg-zlc-blue-100"
                       />
                     </div>
-                    <div className="flex justify-end gap-2">
+                    <div className="flex justify-end gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setShowUploadDialog(false)}
+                        className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-gray-500 hover:bg-zlc-gray-50 transition-all duration-200"
                       >
                         Cancelar
                       </Button>
-                      <Button>Subir Documento</Button>
+                      <Button className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200">
+                        <Upload className="h-4 w-4 mr-2" />
+                        Subir Documento
+                      </Button>
                     </div>
                   </div>
                 </DialogContent>
@@ -709,8 +715,7 @@ export default function PaymentTerms() {
                   <strong>Métodos de Pago Recomendados:</strong>
                   <br />• <strong>T/T:</strong> Para pedidos pequeños y medianos
                   <br />• <strong>LC:</strong> Para pedidos grandes (+$50K)
-                  <br />
-                  ��� <strong>Crédito:</strong> Para clientes verificados
+                  <br />• <strong>Crédito:</strong> Para clientes verificados
                 </AlertDescription>
               </Alert>
 
@@ -741,7 +746,7 @@ export default function PaymentTerms() {
               <Alert>
                 <Building className="h-4 w-4" />
                 <AlertDescription>
-                  <strong>��Necesita ayuda con pagos?</strong>
+                  <strong>¿Necesita ayuda con pagos?</strong>
                   <br />
                   Nuestro equipo financiero puede asistirle con configuración de
                   métodos de pago y gestión de crédito.
