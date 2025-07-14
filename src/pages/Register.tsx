@@ -1301,7 +1301,7 @@ export default function Register() {
                                         >
                                           Política de Privacidad
                                         </Link>
-                                        , incluyendo las cláusulas específicas
+                                        , incluyendo las cláusulas espec��ficas
                                         sobre la Zona Libre de Colón.
                                       </FormLabel>
                                       <FormMessage />
@@ -1862,6 +1862,7 @@ export default function Register() {
                             variant="outline"
                             onClick={prevStep}
                             disabled={currentStep === 1}
+                            className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Anterior
@@ -1871,7 +1872,7 @@ export default function Register() {
                             <Button
                               type="button"
                               onClick={nextStep}
-                              className="bg-zlc-blue-800 hover:bg-zlc-blue-900"
+                              className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
                             >
                               Siguiente
                               <ArrowRight className="ml-2 h-4 w-4 " />
@@ -1882,7 +1883,7 @@ export default function Register() {
                               disabled={
                                 isSubmitting || !supplierForm.formState.isValid
                               }
-                              className="bg-zlc-blue-800 hover:bg-zlc-blue-900"
+                              className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                               {isSubmitting
                                 ? "Registrando..."
