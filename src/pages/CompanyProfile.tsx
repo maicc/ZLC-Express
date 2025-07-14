@@ -502,6 +502,11 @@ export default function CompanyProfile() {
                               }))
                             }
                             disabled={!isEditing}
+                            className={`border-2 bg-white text-zlc-gray-900 transition-all duration-200 ${
+                              isEditing
+                                ? "border-zlc-gray-200 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200"
+                                : "border-zlc-gray-100 bg-zlc-gray-50"
+                            }`}
                           />
                         </div>
                         <div>
@@ -516,6 +521,11 @@ export default function CompanyProfile() {
                               }))
                             }
                             disabled={!isEditing}
+                            className={`border-2 bg-white text-zlc-gray-900 transition-all duration-200 ${
+                              isEditing
+                                ? "border-zlc-gray-200 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200"
+                                : "border-zlc-gray-100 bg-zlc-gray-50"
+                            }`}
                           />
                         </div>
                         <div>
@@ -530,6 +540,11 @@ export default function CompanyProfile() {
                               }))
                             }
                             disabled={!isEditing}
+                            className={`border-2 bg-white text-zlc-gray-900 transition-all duration-200 ${
+                              isEditing
+                                ? "border-zlc-gray-200 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200"
+                                : "border-zlc-gray-100 bg-zlc-gray-50"
+                            }`}
                           />
                         </div>
                         <div>
@@ -544,6 +559,11 @@ export default function CompanyProfile() {
                               }))
                             }
                             disabled={!isEditing}
+                            className={`border-2 bg-white text-zlc-gray-900 transition-all duration-200 ${
+                              isEditing
+                                ? "border-zlc-gray-200 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200"
+                                : "border-zlc-gray-100 bg-zlc-gray-50"
+                            }`}
                           />
                         </div>
                         <div>
@@ -558,6 +578,11 @@ export default function CompanyProfile() {
                               }))
                             }
                             disabled={!isEditing}
+                            className={`border-2 bg-white text-zlc-gray-900 transition-all duration-200 ${
+                              isEditing
+                                ? "border-zlc-gray-200 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200"
+                                : "border-zlc-gray-100 bg-zlc-gray-50"
+                            }`}
                           />
                         </div>
                       </div>
