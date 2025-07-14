@@ -590,14 +590,19 @@ export default function CompanyProfile() {
                     </div>
 
                     {isEditing && (
-                      <div className="flex justify-end gap-2">
+                      <div className="flex justify-end gap-3">
                         <Button
                           variant="outline"
                           onClick={() => setIsEditing(false)}
+                          className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-gray-500 hover:bg-zlc-gray-50 transition-all duration-200"
                         >
                           Cancelar
                         </Button>
-                        <Button onClick={handleSaveProfile}>
+                        <Button
+                          onClick={handleSaveProfile}
+                          className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
+                        >
+                          <CheckCircle className="h-4 w-4 mr-2" />
                           Guardar Cambios
                         </Button>
                       </div>
@@ -1338,7 +1343,7 @@ export default function CompanyProfile() {
                   <div className="space-y-3">
                     <Button
                       variant="outline"
-                      className="w-full justify-start"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                       onClick={() => exportOrderHistory("csv")}
                     >
                       <Download className="h-4 w-4 mr-2" />
@@ -1346,7 +1351,7 @@ export default function CompanyProfile() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full justify-start"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                       onClick={() => exportOrderHistory("xlsx")}
                     >
                       <Download className="h-4 w-4 mr-2" />
@@ -1354,7 +1359,7 @@ export default function CompanyProfile() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full justify-start"
+                      className="w-full justify-start border-2 border-zlc-gray-200 text-zlc-gray-700 hover:border-zlc-blue-300 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
                       onClick={downloadGroupedInvoices}
                     >
                       <Download className="h-4 w-4 mr-2" />
