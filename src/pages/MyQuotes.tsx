@@ -145,7 +145,7 @@ export default function MyQuotes() {
     switch (status) {
       case "pending":
         return (
-          <Badge className="bg-yellow-100 text-yellow-800">
+          <Badge className="bg-amber-100 text-amber-900 border-amber-200">
             <Clock className="w-3 h-3 mr-1" />
             Pendiente
           </Badge>
