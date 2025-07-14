@@ -233,6 +233,7 @@ export default function MyOrders() {
               <Button
                 variant="outline"
                 onClick={() => exportOrderHistory("csv")}
+                className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Exportar CSV
@@ -240,6 +241,7 @@ export default function MyOrders() {
               <Button
                 variant="outline"
                 onClick={() => exportOrderHistory("xlsx")}
+                className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 hover:text-zlc-blue-700 transition-all duration-200"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Exportar Excel
@@ -328,14 +330,34 @@ export default function MyOrders() {
                 <div>
                   <Label htmlFor="search">Buscar</Label>
                   <div className="relative">
-                    <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-zlc-gray-500" />
                     <Input
                       id="search"
                       placeholder="Nº de pedido o proveedor..."
                       value={state.filters.searchTerm}
                       onChange={(e) => handleSearchChange(e.target.value)}
-                      className="pl-10"
+                      className="pl-10 h-11 border-2 border-zlc-gray-200 bg-white rounded-lg focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 text-zlc-gray-900"
                     />
+                    {state.filters.searchTerm && (
+                      <button
+                        onClick={() => handleSearchChange("")}
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-zlc-gray-400 hover:text-zlc-gray-600 transition-colors"
+                      >
+                        <svg
+                          className="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    )}
                   </div>
                 </div>
 
