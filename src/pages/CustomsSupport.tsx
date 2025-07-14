@@ -475,7 +475,7 @@ function CustomsSupport() {
                       <span>iris.morales@zlcexpress.com</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 text-yellow-500" />
+                      <Star className="h-4 w-4 text-amber-600" />
                       <span>4.9/5 Calificación Cliente</span>
                     </div>
                   </div>
@@ -960,7 +960,7 @@ function CustomsSupport() {
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Phone className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="font-semibold mb-2">Centro de Atención</h3>
+                  <h3 className="font-semibold mb-2">Centro de Atenci��n</h3>
                   <p className="text-sm text-gray-600">+507 430-7000</p>
                   <p className="text-sm text-gray-600">Ext. 2800 (General)</p>
                   <p className="text-sm text-gray-600">Ext. 2850 (Iris)</p>
