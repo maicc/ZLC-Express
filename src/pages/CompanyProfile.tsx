@@ -958,6 +958,7 @@ export default function CompanyProfile() {
                                           swift: e.target.value,
                                         }))
                                       }
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                     />
                                   </div>
                                   <div>
@@ -971,6 +972,7 @@ export default function CompanyProfile() {
                                           bic: e.target.value,
                                         }))
                                       }
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                     />
                                   </div>
                                 </div>
@@ -987,6 +989,7 @@ export default function CompanyProfile() {
                                         accountNumber: e.target.value,
                                       }))
                                     }
+                                    className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                   />
                                 </div>
                                 <div>
@@ -1002,20 +1005,26 @@ export default function CompanyProfile() {
                                         accountHolder: e.target.value,
                                       }))
                                     }
+                                    className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                   />
                                 </div>
                               </div>
                             </>
                           )}
 
-                          <div className="flex justify-end gap-2">
+                          <div className="flex justify-end gap-3">
                             <Button
                               variant="outline"
                               onClick={() => setShowPaymentDialog(false)}
+                              className="border-2 border-zlc-gray-300 text-zlc-gray-700 hover:border-zlc-gray-500 hover:bg-zlc-gray-50 transition-all duration-200"
                             >
                               Cancelar
                             </Button>
-                            <Button onClick={handleAddPaymentMethod}>
+                            <Button
+                              onClick={handleAddPaymentMethod}
+                              className="bg-zlc-blue-600 hover:bg-zlc-blue-700 border-2 border-zlc-blue-600 hover:border-zlc-blue-700 shadow-md transition-all duration-200"
+                            >
+                              <CreditCard className="h-4 w-4 mr-2" />
                               Agregar Método
                             </Button>
                           </div>
