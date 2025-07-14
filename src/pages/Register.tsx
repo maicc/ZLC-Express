@@ -820,7 +820,7 @@ export default function Register() {
                                   <FormLabel>Nombre de la Empresa *</FormLabel>
                                   <FormControl>
                                     <Input
-                                      className="bg-white border border-black"
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                       placeholder="Ej: Importadora del Caribe S.A."
                                       {...field}
                                     />
@@ -840,7 +840,7 @@ export default function Register() {
                                   </FormLabel>
                                   <FormControl>
                                     <Input
-                                      className="bg-white border border-black"
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                       placeholder="Ej: 3-101-123456"
                                       {...field}
                                     />
