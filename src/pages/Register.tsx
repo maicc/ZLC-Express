@@ -921,7 +921,7 @@ export default function Register() {
                                     <FormLabel>Nombre Completo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: Juan Carlos Pérez"
                                         {...field}
                                       />
@@ -939,7 +939,7 @@ export default function Register() {
                                     <FormLabel>Cargo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: Gerente de Compras"
                                         {...field}
                                       />
@@ -959,7 +959,7 @@ export default function Register() {
                                     <FormLabel>Email Corporativo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         type="email"
                                         placeholder="nombre@empresa.com"
                                         {...field}
@@ -1009,7 +1009,7 @@ export default function Register() {
                                     <FormLabel>Teléfono *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="+506 2234-5678"
                                         {...field}
                                       />
@@ -1193,7 +1193,7 @@ export default function Register() {
                                   <FormLabel>Código Postal *</FormLabel>
                                   <FormControl>
                                     <Input
-                                      className="border border-black"
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                       placeholder="Ej: 10101"
                                       {...field}
                                     />
@@ -1217,7 +1217,7 @@ export default function Register() {
                                     <FormLabel>Contraseña *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         type="password"
                                         placeholder="Mínimo 8 caracteres"
                                         {...field}
@@ -1242,7 +1242,7 @@ export default function Register() {
                                     </FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         type="password"
                                         placeholder="Repita la contraseña"
                                         {...field}
@@ -1385,7 +1385,7 @@ export default function Register() {
                                   </FormLabel>
                                   <FormControl>
                                     <Input
-                                      className="border border-black"
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                       placeholder="Ej: Textiles Modernos S.A."
                                       {...field}
                                     />
@@ -1404,7 +1404,7 @@ export default function Register() {
                                     <FormLabel>Número de RUC *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: 8-123-12345"
                                         {...field}
                                       />
@@ -1548,7 +1548,7 @@ export default function Register() {
                                     <FormLabel>Nombre Completo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: Juan Carlos Pérez"
                                         {...field}
                                       />
@@ -1566,7 +1566,7 @@ export default function Register() {
                                     <FormLabel>Cargo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: Gerente de Ventas"
                                         {...field}
                                       />
@@ -1586,7 +1586,7 @@ export default function Register() {
                                     <FormLabel>Email Corporativo *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         type="email"
                                         placeholder="nombre@empresa.com"
                                         {...field}
@@ -1636,7 +1636,7 @@ export default function Register() {
                                     </FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: +507 6234-5678"
                                         {...field}
                                       />
@@ -1711,7 +1711,7 @@ export default function Register() {
                                     <FormLabel>Ciudad *</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="border border-black"
+                                        className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                         placeholder="Ej: Colón"
                                         {...field}
                                       />
@@ -1732,7 +1732,7 @@ export default function Register() {
                                   </FormLabel>
                                   <FormControl>
                                     <Input
-                                      className="border border-black"
+                                      className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 placeholder:text-zlc-gray-400 rounded-lg h-11"
                                       placeholder="Ej: 50000"
                                       {...field}
                                     />
