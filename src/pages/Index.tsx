@@ -195,12 +195,10 @@ export default function Index() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-black hover:bg-white/20 h-12 px-8"
+                    className="border-white text-white hover:bg-white/20 hover:text-white h-12 px-8"
                   >
                     Ver Catálogo
                   </Button>
-
-
                 </div>
 
                 <div className="flex items-center space-x-6 text-sm text-blue-200">
@@ -492,7 +490,7 @@ export default function Index() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-black hover:bg-white/10 h-12 px-8"
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white h-12 px-8"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 Hablar con un Asesor
@@ -502,7 +500,7 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-blue-200 text-sm">
               <div className="flex items-center">
                 <Clock className="mr-2 h-4 w-4" />
-                <span >Verificación en 1-3 días</span>
+                <span>Verificación en 1-3 días</span>
               </div>
               <div className="flex items-center">
                 <DollarSign className="mr-2 h-4 w-4" />
@@ -527,7 +525,9 @@ export default function Index() {
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg text-zlc-gray-400">ZLC Express</div>
+                    <div className="font-bold text-lg text-zlc-gray-400">
+                      ZLC Express
+                    </div>
                     <div className="text-xs text-zlc-gray-400">
                       B2B Marketplace
                     </div>
@@ -540,7 +540,9 @@ export default function Index() {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center text-zlc-gray-400">
                     <MapPin className="mr-2 h-4 w-4" />
-                    <span className="text-zlc-gray-400">Zona Libre de Colón, Panamá</span>
+                    <span className="text-zlc-gray-400">
+                      Zona Libre de Colón, Panamá
+                    </span>
                   </div>
                   <div className="flex items-center text-zlc-gray-400 ">
                     <Phone className="mr-2 h-4 w-4" />
@@ -548,14 +550,18 @@ export default function Index() {
                   </div>
                   <div className="flex items-center text-zlc-gray-400">
                     <Mail className="mr-2 h-4 w-4" />
-                    <span className="text-zlc-gray-400">contacto@zlcexpress.com</span>
+                    <span className="text-zlc-gray-400">
+                      contacto@zlcexpress.com
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Products */}
               <div>
-                <h4 className="font-semibold mb-4 text-zlc-gray-400">Productos</h4>
+                <h4 className="font-semibold mb-4 text-zlc-gray-400">
+                  Productos
+                </h4>
                 <ul className="space-y-2 text-sm text-zlc-gray-400">
                   <li>
                     <Link
@@ -601,7 +607,9 @@ export default function Index() {
 
               {/* Company */}
               <div>
-                <h4 className="font-semibold mb-4 text-zlc-gray-400">Empresa</h4>
+                <h4 className="font-semibold mb-4 text-zlc-gray-400">
+                  Empresa
+                </h4>
                 <ul className="space-y-2 text-sm text-zlc-gray-400">
                   <li>
                     <Link to="/about" className="hover:text-white">
@@ -638,7 +646,9 @@ export default function Index() {
 
               {/* Support */}
               <div>
-                <h4 className="font-semibold mb-4 text-zlc-gray-400">Soporte</h4>
+                <h4 className="font-semibold mb-4 text-zlc-gray-400">
+                  Soporte
+                </h4>
                 <ul className="space-y-2 text-sm text-zlc-gray-400">
                   <li>
                     <Link to="/support" className="hover:text-white">
