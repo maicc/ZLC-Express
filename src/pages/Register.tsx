@@ -1518,8 +1518,9 @@ export default function Register() {
                                         variant="ghost"
                                         size="sm"
                                         onClick={() => removeDocument(index)}
+                                        className="text-red-600 hover:text-red-700 hover:bg-red-50 transition-all duration-200"
                                       >
-                                        <AlertCircle className="h-4 w-4 text-red-500" />
+                                        <AlertCircle className="h-4 w-4" />
                                       </Button>
                                     </div>
                                   ))}
