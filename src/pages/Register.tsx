@@ -1498,7 +1498,7 @@ export default function Register() {
                                 onChange={(e) =>
                                   handleFileUpload(e.target.files)
                                 }
-                                className="mb-3 border border-black"
+                                className="mb-3 border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg p-3 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-zlc-blue-50 file:text-zlc-blue-700 hover:file:bg-zlc-blue-100"
                               />
                               {uploadedDocuments.length > 0 && (
                                 <div className="space-y-2">
