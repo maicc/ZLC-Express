@@ -452,7 +452,7 @@ const sectors = [
 ];
 
 const steps = [
-  { id: 1, title: "Información de la Empresa", icon: Building2 },
+  { id: 1, title: "Informaci��n de la Empresa", icon: Building2 },
   { id: 2, title: "Contacto Principal", icon: User },
   { id: 3, title: "Dirección Fiscal", icon: MapPin },
   { id: 4, title: "Seguridad y Términos", icon: Shield },
@@ -1113,7 +1113,7 @@ export default function Register() {
                                           availableStates.length === 0
                                         }
                                       >
-                                        <SelectTrigger>
+                                        <SelectTrigger className="border-2 border-zlc-gray-200 bg-white text-zlc-gray-900 focus:border-zlc-blue-500 focus:ring-2 focus:ring-zlc-blue-200 transition-all duration-200 rounded-lg h-11">
                                           <SelectValue
                                             placeholder={
                                               !selectedCountry
