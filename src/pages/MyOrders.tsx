@@ -406,12 +406,13 @@ export default function MyOrders() {
                         )}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0">
+                    <PopoverContent className="w-auto p-0 bg-white border-2 border-zlc-gray-200 shadow-lg rounded-lg">
                       <Calendar
                         mode="single"
                         selected={dateFrom}
                         onSelect={setDateFrom}
                         initialFocus
+                        className="p-3"
                       />
                     </PopoverContent>
                   </Popover>
@@ -437,27 +438,35 @@ export default function MyOrders() {
                         )}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0">
+                    <PopoverContent className="w-auto p-0 bg-white border-2 border-zlc-gray-200 shadow-lg rounded-lg">
                       <Calendar
                         mode="single"
                         selected={dateTo}
                         onSelect={setDateTo}
                         initialFocus
+                        className="p-3"
                       />
                     </PopoverContent>
                   </Popover>
                 </div>
               </div>
 
-              <div className="flex gap-2 mt-4">
+              <div className="flex gap-3 mt-4">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={handleDateRangeChange}
+                  className="border-2 border-zlc-blue-300 text-zlc-blue-700 hover:border-zlc-blue-500 hover:bg-zlc-blue-50 transition-all duration-200"
                 >
+                  <CalendarIcon className="h-4 w-4 mr-2" />
                   Aplicar Filtros de Fecha
                 </Button>
-                <Button variant="ghost" size="sm" onClick={handleClearFilters}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleClearFilters}
+                  className="text-zlc-gray-600 hover:text-zlc-gray-800 hover:bg-zlc-gray-100 transition-all duration-200"
+                >
                   Limpiar Filtros
                 </Button>
               </div>
