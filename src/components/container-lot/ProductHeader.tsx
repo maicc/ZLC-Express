@@ -74,22 +74,26 @@ export function ProductHeader({
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
-            size="icon"
-            variant="outline"
-            className="!bg-white border-gray-300 hover:!bg-gray-50 text-gray-600"
-            style={{ backgroundColor: "white !important" }}
+          <button
+            className="h-10 w-10 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+            style={{
+              backgroundColor: "white",
+              borderColor: "#d1d5db",
+              color: "#4b5563",
+            }}
           >
-            <Heart className="h-5 w-5 text-gray-600" />
-          </Button>
-          <Button
-            size="icon"
-            variant="outline"
-            className="!bg-white border-gray-300 hover:!bg-gray-50 text-gray-600"
-            style={{ backgroundColor: "white !important" }}
+            <Heart className="h-5 w-5" />
+          </button>
+          <button
+            className="h-10 w-10 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 transition-colors"
+            style={{
+              backgroundColor: "white",
+              borderColor: "#d1d5db",
+              color: "#4b5563",
+            }}
           >
-            <Share2 className="h-5 w-5 text-gray-600" />
-          </Button>
+            <Share2 className="h-5 w-5" />
+          </button>
         </div>
       </div>
 
