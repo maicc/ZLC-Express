@@ -72,7 +72,7 @@ export function InfoTabs({
         key={i}
         className={`h-4 w-4 ${
           i < rating
-            ? "fill-yellow-400 text-yellow-400"
+            ? "fill-amber-500 text-amber-500"
             : "fill-gray-200 text-gray-200"
         }`}
       />
