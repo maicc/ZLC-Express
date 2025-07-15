@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { DollarSign, TrendingDown, Calculator } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DollarSign, ChevronDown, ChevronUp, Calculator } from "lucide-react";
 
 interface VolumeDiscount {
   containers: number;
@@ -23,6 +25,8 @@ export function PricingSection({
   pricing,
   selectedContainers,
 }: PricingSectionProps) {
+  const [showDiscounts, setShowDiscounts] = useState(false);
+
   const getCurrentDiscount = () => {
     const applicableDiscounts = pricing.volumeDiscounts.filter(
       (discount) => selectedContainers >= discount.containers,
@@ -39,198 +43,181 @@ export function PricingSection({
   const currentDiscount = getCurrentDiscount();
 
   return (
-    <div className="mb-8">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <DollarSign className="h-5 w-5" />
-            Estructura de Precios
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Base Pricing */}
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  Precio Base
-                </h4>
-
-                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl font-bold text-blue-600">
-                      ${pricing.pricePerContainer.toLocaleString()}
-                    </span>
-                    <span className="text-gray-600">por contenedor</span>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Equivale a ${pricing.estimatedUnitPrice} por unidad
-                  </p>
-
-                  {currentDiscount && (
-                    <div className="mt-4 pt-4 border-t border-blue-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingDown className="h-4 w-4 text-green-600" />
-                        <span className="font-medium text-green-600">
-                          Descuento Aplicado:{" "}
-                          {currentDiscount.discountPercentage}%
-                        </span>
-                      </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-green-600">
-                          $
-                          {calculateDiscountedPrice(
-                            selectedContainers,
-                            currentDiscount.discountPercentage,
-                          ).toLocaleString()}
-                        </span>
-                        <span className="text-gray-600">por contenedor</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Price Breakdown */}
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                  Desglose de Costos
-                </h4>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Costo del producto:</span>
-                    <span className="font-medium">$16,200</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Manejo y empaque:</span>
-                    <span className="font-medium">$1,500</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Documentación:</span>
-                    <span className="font-medium">$300</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Carga contenedor:</span>
-                    <span className="font-medium">$500</span>
-                  </div>
-                  <hr className="my-2" />
-                  <div className="flex justify-between font-semibold">
-                    <span>Total FOB ZLC:</span>
-                    <span>${pricing.pricePerContainer.toLocaleString()}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Volume Discounts Table */}
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                Descuentos por Volumen
-              </h4>
-
-              <div className="space-y-3">
-                {pricing.volumeDiscounts.map((discount, index) => {
-                  const isActive = selectedContainers >= discount.containers;
-                  const isCurrent = currentDiscount === discount;
-                  const discountedPrice = calculateDiscountedPrice(
-                    selectedContainers,
-                    discount.discountPercentage,
-                  );
-
-                  return (
-                    <div
-                      key={index}
-                      className={`p-4 rounded-lg border-2 transition-all ${
-                        isCurrent
-                          ? "border-green-500 bg-green-50"
-                          : isActive
-                            ? "border-blue-200 bg-blue-50"
-                            : "border-gray-200 bg-gray-50"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">
-                            {discount.containers}+ contenedores
-                          </span>
-                          {isCurrent && (
-                            <Badge className="bg-green-100 text-green-800 text-xs">
-                              Aplicado
-                            </Badge>
-                          )}
-                        </div>
-                        <span className="font-bold text-green-600">
-                          -{discount.discountPercentage}%
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600">Precio unitario:</span>
-                        <span className="font-medium">
-                          $
-                          {calculateDiscountedPrice(
-                            1,
-                            discount.discountPercentage,
-                          ).toLocaleString()}
-                        </span>
-                      </div>
-
-                      {isCurrent && (
-                        <div className="mt-3 pt-3 border-t border-green-200">
-                          <div className="flex items-center justify-between font-semibold">
-                            <span>Su precio total:</span>
-                            <span className="text-green-600">
-                              $
-                              {(
-                                discountedPrice * selectedContainers
-                              ).toLocaleString()}
-                            </span>
-                          </div>
-                          <div className="text-xs text-green-600 mt-1">
-                            Ahorro: $
-                            {(
-                              pricing.pricePerContainer * selectedContainers -
-                              discountedPrice * selectedContainers
-                            ).toLocaleString()}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <Calculator className="h-4 w-4 text-gray-600" />
-                  <span className="font-medium text-gray-900">
-                    Calculadora de Ahorro
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600">
-                  Con {selectedContainers} contenedor(es) y el{" "}
-                  {currentDiscount ? currentDiscount.discountPercentage : 0}% de
-                  descuento, usted ahorra{" "}
-                  <span className="font-medium text-green-600">
-                    $
-                    {currentDiscount
-                      ? (
-                          (pricing.pricePerContainer -
-                            calculateDiscountedPrice(
-                              selectedContainers,
-                              currentDiscount.discountPercentage,
-                            )) *
-                          selectedContainers
-                        ).toLocaleString()
-                      : "0"}
-                  </span>{" "}
-                  en total.
-                </p>
-              </div>
+    <Card className="mb-8">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <DollarSign className="h-5 w-5" />
+          Precios y Descuentos
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+          {/* Base Pricing */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Precio por Contenedor
+            </h4>
+            <div className="text-3xl font-bold text-blue-600 mb-1">
+              USD {pricing.pricePerContainer.toLocaleString()}
             </div>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+
+          {/* Unit Price */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-2">
+              Precio Unitario Estimado
+            </h4>
+            <div className="text-lg font-semibold text-gray-900">
+              USD {pricing.estimatedUnitPrice.toFixed(2)}
+            </div>
+          </div>
+        </div>
+
+        {/* Volume Discounts Toggle */}
+        <div className="border-t pt-4">
+          <Button
+            variant="ghost"
+            onClick={() => setShowDiscounts(!showDiscounts)}
+            className="flex items-center gap-2 p-0 h-auto text-left font-semibold"
+          >
+            {showDiscounts ? (
+              <ChevronUp className="h-4 w-4" />
+            ) : (
+              <ChevronDown className="h-4 w-4" />
+            )}
+            Descuentos por Volumen
+          </Button>
+
+          {showDiscounts && (
+            <div className="mt-4">
+              <div className="overflow-hidden rounded-lg border">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                        Contenedores
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                        Descuento
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                        Precio c/u
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                        Estado
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {pricing.volumeDiscounts.map((discount, index) => {
+                      const isActive =
+                        selectedContainers >= discount.containers;
+                      const isCurrent = currentDiscount === discount;
+                      const discountedPrice = calculateDiscountedPrice(
+                        1,
+                        discount.discountPercentage,
+                      );
+
+                      return (
+                        <tr
+                          key={index}
+                          className={`${
+                            isCurrent
+                              ? "bg-green-50"
+                              : isActive
+                                ? "bg-blue-50"
+                                : ""
+                          }`}
+                        >
+                          <td className="px-4 py-3 text-sm text-gray-900">
+                            {discount.containers}+
+                          </td>
+                          <td className="px-4 py-3 text-sm font-medium text-green-600">
+                            {discount.discountPercentage}%
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-900">
+                            USD {discountedPrice.toLocaleString()}
+                          </td>
+                          <td className="px-4 py-3">
+                            {isCurrent && (
+                              <Badge className="bg-green-100 text-green-800 text-xs">
+                                Aplicado
+                              </Badge>
+                            )}
+                            {isActive && !isCurrent && (
+                              <Badge variant="secondary" className="text-xs">
+                                Disponible
+                              </Badge>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Calculation Summary */}
+              <div className="mt-6 bg-gray-50 p-4 rounded-lg">
+                <div className="flex items-center gap-2 mb-3">
+                  <Calculator className="h-4 w-4 text-gray-600" />
+                  <span className="font-medium text-gray-900">
+                    Resumen del Cálculo
+                  </span>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">
+                      Contenedores seleccionados:
+                    </span>
+                    <span className="font-medium">{selectedContainers}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">
+                      Precio base por contenedor:
+                    </span>
+                    <span className="font-medium">
+                      USD {pricing.pricePerContainer.toLocaleString()}
+                    </span>
+                  </div>
+                  {currentDiscount && (
+                    <div className="flex justify-between text-green-600">
+                      <span>
+                        Descuento aplicado ({currentDiscount.discountPercentage}
+                        %):
+                      </span>
+                      <span className="font-medium">
+                        -USD{" "}
+                        {(
+                          (pricing.pricePerContainer *
+                            currentDiscount.discountPercentage) /
+                          100
+                        ).toLocaleString()}
+                      </span>
+                    </div>
+                  )}
+                  <div className="border-t pt-2 flex justify-between font-semibold text-lg">
+                    <span>Total:</span>
+                    <span className="text-blue-600">
+                      USD{" "}
+                      {currentDiscount
+                        ? (
+                            calculateDiscountedPrice(
+                              1,
+                              currentDiscount.discountPercentage,
+                            ) * selectedContainers
+                          ).toLocaleString()
+                        : (
+                            pricing.pricePerContainer * selectedContainers
+                          ).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
 }
