@@ -41,9 +41,9 @@ export function ProductSpecs({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
       {/* Left Column - Product Description */}
-      <Card>
+      <Card className="bg-white border border-gray-200">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
+          <CardTitle className="flex items-center gap-2 text-lg text-gray-900">
             <Info className="h-5 w-5" />
             Descripción del Producto
           </CardTitle>
@@ -58,14 +58,16 @@ export function ProductSpecs({
             </p>
           </div>
 
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Material</h4>
-            <p className="text-gray-700 text-sm">{specifications.material}</p>
-          </div>
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Material</h4>
+              <p className="text-gray-700 text-sm">{specifications.material}</p>
+            </div>
 
-          <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Categoría</h4>
-            <p className="text-gray-700 text-sm">{specifications.category}</p>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3">Categoría</h4>
+              <p className="text-gray-700 text-sm">{specifications.category}</p>
+            </div>
           </div>
 
           <div>
@@ -103,9 +105,9 @@ export function ProductSpecs({
       </Card>
 
       {/* Right Column - Logistics Data */}
-      <Card>
+      <Card className="bg-white border border-gray-200">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
+          <CardTitle className="flex items-center gap-2 text-lg text-gray-900">
             <Package className="h-5 w-5" />
             Datos Logísticos del Lote
           </CardTitle>
