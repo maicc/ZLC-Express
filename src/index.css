@@ -150,4 +150,8 @@
   .card-professional {
     @apply rounded-xl border bg-card p-6 shadow-soft hover:shadow-soft-lg transition-shadow duration-200;
   }
+
+  .bg-b2b-gray-lighter {
+    @apply bg-gray-50;
+  }
 }
