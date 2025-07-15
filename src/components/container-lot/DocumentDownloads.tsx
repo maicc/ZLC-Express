@@ -1,13 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Download,
   FileText,
-  Image,
-  CheckCircle,
-  Shield,
+  Package,
+  FileSpreadsheet,
   FileCheck,
+  Info,
+  BookOpen,
+  Calculator,
 } from "lucide-react";
 
 interface DocumentDownloadsProps {
@@ -16,55 +17,60 @@ interface DocumentDownloadsProps {
 
 const documents = [
   {
-    id: "product-spec",
-    name: "Especificaciones Técnicas",
-    description: "Detalles completos del producto, materiales y dimensiones",
-    type: "PDF",
-    size: "2.3 MB",
+    id: "commercial-invoice",
+    name: "Factura Comercial Proforma",
+    description: "Documento proforma para evaluación de costos",
     icon: FileText,
-    available: true,
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-100",
   },
   {
-    id: "quality-cert",
-    name: "Certificados de Calidad",
-    description: "OEKO-TEX, GOTS y certificaciones ISO",
-    type: "PDF",
-    size: "1.8 MB",
-    icon: Shield,
-    available: true,
+    id: "packing-list",
+    name: "Packing List de Ejemplo",
+    description: "Lista detallada del contenido del contenedor",
+    icon: Package,
+    iconColor: "text-green-600",
+    iconBg: "bg-green-100",
   },
   {
-    id: "sample-images",
-    name: "Galería de Imágenes HD",
-    description: "Fotos de alta resolución del producto y proceso",
-    type: "ZIP",
-    size: "45.2 MB",
-    icon: Image,
-    available: true,
+    id: "customs-data",
+    name: "Datos Aduaneros Esenciales",
+    description: "Código HS, descripción y uso declarado",
+    icon: FileSpreadsheet,
+    iconColor: "text-orange-600",
+    iconBg: "bg-orange-100",
   },
   {
-    id: "test-reports",
-    name: "Reportes de Pruebas",
-    description: "Resultados de pruebas de calidad y control",
-    type: "PDF",
-    size: "3.1 MB",
+    id: "contract-templates",
+    name: "Plantillas de Contratos",
+    description: "Documentos estándar para diferentes Incoterms",
     icon: FileCheck,
-    available: true,
+    iconColor: "text-gray-600",
+    iconBg: "bg-gray-100",
+  },
+];
+
+const additionalResources = [
+  {
+    id: "import-guide",
+    name: "Guía de Importación ZLC",
+    description: "Proceso completo paso a paso",
+    icon: BookOpen,
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-100",
   },
   {
-    id: "compliance-docs",
-    name: "Documentos de Cumplimiento",
-    description: "Certificaciones regulatorias y aduanales",
-    type: "PDF",
-    size: "1.5 MB",
-    icon: CheckCircle,
-    available: false,
+    id: "tariff-calculator",
+    name: "Calculadora de Aranceles",
+    description: "Estimación de costos totales",
+    icon: Calculator,
+    iconColor: "text-green-600",
+    iconBg: "bg-green-100",
   },
 ];
 
 export function DocumentDownloads({ lotId }: DocumentDownloadsProps) {
   const handleDownload = (documentId: string) => {
-    // Simulate download
     console.log(`Downloading document: ${documentId} for lot: ${lotId}`);
   };
 
@@ -73,127 +79,109 @@ export function DocumentDownloads({ lotId }: DocumentDownloadsProps) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Download className="h-5 w-5" />
-          Documentación Técnica
+          Documentación B2B
         </CardTitle>
-        <p className="text-sm text-gray-600">
-          Descargue la documentación completa del lote {lotId}
-        </p>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Main Documents Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {documents.map((doc) => {
             const IconComponent = doc.icon;
 
             return (
               <div
                 key={doc.id}
-                className={`p-4 rounded-lg border-2 transition-all ${
-                  doc.available
-                    ? "border-gray-200 hover:border-blue-300 bg-white"
-                    : "border-gray-100 bg-gray-50"
-                }`}
+                className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-start gap-3">
-                  <div
-                    className={`p-2 rounded-lg ${
-                      doc.available
-                        ? "bg-blue-100 text-blue-600"
-                        : "bg-gray-100 text-gray-400"
-                    }`}
-                  >
-                    <IconComponent className="h-5 w-5" />
+                  <div className={`p-2 rounded-lg ${doc.iconBg}`}>
+                    <IconComponent className={`h-5 w-5 ${doc.iconColor}`} />
                   </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4
-                        className={`font-medium ${
-                          doc.available ? "text-gray-900" : "text-gray-500"
-                        }`}
-                      >
-                        {doc.name}
-                      </h4>
-                      <Badge
-                        variant={doc.available ? "default" : "secondary"}
-                        className="text-xs"
-                      >
-                        {doc.type}
-                      </Badge>
-                    </div>
-
-                    <p
-                      className={`text-sm mb-2 ${
-                        doc.available ? "text-gray-600" : "text-gray-400"
-                      }`}
-                    >
+                  <div className="flex-1">
+                    <h4 className="font-medium text-gray-900 mb-1">
+                      {doc.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 mb-3">
                       {doc.description}
                     </p>
-
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={`text-xs ${
-                          doc.available ? "text-gray-500" : "text-gray-400"
-                        }`}
-                      >
-                        Tamaño: {doc.size}
-                      </span>
-
-                      <Button
-                        size="sm"
-                        onClick={() => handleDownload(doc.id)}
-                        disabled={!doc.available}
-                        className={
-                          doc.available
-                            ? "bg-blue-600 hover:bg-blue-700"
-                            : undefined
-                        }
-                      >
-                        <Download className="h-3 w-3 mr-1" />
-                        {doc.available ? "Descargar" : "No disponible"}
-                      </Button>
-                    </div>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleDownload(doc.id)}
+                      className="w-full"
+                    >
+                      <Download className="h-3 w-3 mr-2" />
+                      Descargar
+                    </Button>
                   </div>
                 </div>
-
-                {!doc.available && (
-                  <div className="mt-3 p-2 bg-orange-50 border border-orange-200 rounded text-xs text-orange-800">
-                    Disponible después de solicitar cotización
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
 
-        <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+        {/* Customs Advisory Section */}
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
           <div className="flex items-start gap-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <FileText className="h-5 w-5 text-blue-600" />
+            <div className="bg-blue-100 p-2 rounded-lg">
+              <Info className="h-5 w-5 text-blue-600" />
             </div>
-            <div>
-              <h4 className="font-medium text-gray-900 mb-1">
-                Paquete Completo de Documentación
+            <div className="flex-1">
+              <h4 className="font-medium text-blue-900 mb-2">
+                ¿Necesita Asesoría Aduanera Especializada?
               </h4>
-              <p className="text-sm text-gray-600 mb-3">
-                Descargue todos los documentos disponibles en un solo archivo
-                comprimido.
+              <p className="text-sm text-blue-800 mb-3">
+                Ito, nuestra asesora aduanera certificada puede ayudarle con:
               </p>
+              <ul className="text-sm text-blue-800 space-y-1 mb-4">
+                <li>• Clasificación arancelaria correcta (Código HS)</li>
+                <li>• Optimización de aranceles e impuestos</li>
+                <li>• Documentación requerida para importación</li>
+                <li>• Procedimientos de la Zona Libre de Colón</li>
+              </ul>
               <Button
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
               >
-                <Download className="h-4 w-4 mr-2" />
-                Descargar Todo (ZIP - 52.9 MB)
+                <FileText className="h-4 w-4 mr-2" />
+                Consultar a Ito - Asesora Aduanera
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="mt-4 text-center">
-          <p className="text-xs text-gray-500">
-            Los documentos se actualizan automáticamente. Última actualización:{" "}
-            <span className="font-medium">15 de Enero, 2024</span>
-          </p>
+        {/* Additional Resources */}
+        <div>
+          <h4 className="font-semibold text-gray-900 mb-4">
+            Recursos Adicionales
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {additionalResources.map((resource) => {
+              const IconComponent = resource.icon;
+
+              return (
+                <div
+                  key={resource.id}
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                  onClick={() => handleDownload(resource.id)}
+                >
+                  <div className={`p-2 rounded-lg ${resource.iconBg}`}>
+                    <IconComponent
+                      className={`h-4 w-4 ${resource.iconColor}`}
+                    />
+                  </div>
+                  <div>
+                    <h5 className="font-medium text-gray-900 text-sm">
+                      {resource.name}
+                    </h5>
+                    <p className="text-xs text-gray-600">
+                      {resource.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </CardContent>
     </Card>
