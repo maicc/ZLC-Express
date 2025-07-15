@@ -74,11 +74,19 @@ export function ProductHeader({
         </div>
 
         <div className="flex items-center gap-2">
-          <Button size="icon" variant="outline">
-            <Heart className="h-5 w-5" />
+          <Button
+            size="icon"
+            variant="outline"
+            className="border-gray-300 hover:bg-gray-50"
+          >
+            <Heart className="h-5 w-5 text-gray-600" />
           </Button>
-          <Button size="icon" variant="outline">
-            <Share2 className="h-5 w-5" />
+          <Button
+            size="icon"
+            variant="outline"
+            className="border-gray-300 hover:bg-gray-50"
+          >
+            <Share2 className="h-5 w-5 text-gray-600" />
           </Button>
         </div>
       </div>
