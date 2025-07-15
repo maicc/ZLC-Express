@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Package, Truck, Clock, Info, Box, Scale } from "lucide-react";
+import { Package, Truck, Clock, Info, Box, Scale, Weight } from "lucide-react";
 
 interface Specifications {
   material: string;
@@ -39,147 +39,174 @@ export function ProductSpecs({
   logistics,
 }: ProductSpecsProps) {
   return (
-    <div className="space-y-6 mb-8">
-      {/* Product Description */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      {/* Left Column - Product Description */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg">
             <Info className="h-5 w-5" />
             Descripción del Producto
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="text-gray-700 leading-relaxed">{description}</p>
+        <CardContent className="space-y-6">
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Descripción Detallada
+            </h4>
+            <p className="text-gray-700 leading-relaxed text-sm mb-4">
+              {description}
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">Material</h4>
+            <p className="text-gray-700 text-sm">{specifications.material}</p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">Categoría</h4>
+            <p className="text-gray-700 text-sm">{specifications.category}</p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Tallas Disponibles
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {specifications.sizes.map((size) => (
+                <span
+                  key={size}
+                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm"
+                >
+                  {size}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Colores Disponibles
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {specifications.colors.map((color) => (
+                <span
+                  key={color}
+                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm"
+                >
+                  {color}
+                </span>
+              ))}
+            </div>
+          </div>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Product Specifications */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Package className="h-5 w-5" />
-              Especificaciones
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Material</h4>
-              <p className="text-gray-700">{specifications.material}</p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Categoría</h4>
-              <Badge variant="outline">{specifications.category}</Badge>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                Tallas Disponibles
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {specifications.sizes.map((size) => (
-                  <Badge key={size} variant="secondary">
-                    {size}
-                  </Badge>
-                ))}
+      {/* Right Column - Logistics Data */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <Package className="h-5 w-5" />
+            Datos Logísticos del Lote
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Total Units and Weight */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-100 p-2 rounded">
+                <Package className="h-4 w-4 text-blue-600" />
               </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                Colores Disponibles
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {specifications.colors.map((color) => (
-                  <Badge key={color} variant="outline">
-                    {color}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Logistics Information */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Truck className="h-5 w-5" />
-              Información Logística
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">
-                  Total Unidades
-                </h4>
-                <p className="text-gray-700">
+                <p className="text-xs text-gray-600">Total Unidades</p>
+                <p className="font-semibold text-gray-900">
                   {logistics.totalUnits.toLocaleString()}
                 </p>
               </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Peso Bruto</h4>
-                <p className="text-gray-700">{logistics.grossWeight}</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-100 p-2 rounded">
+                <Weight className="h-4 w-4 text-blue-600" />
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Peso Neto</h4>
-                <p className="text-gray-700">{logistics.netWeight}</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Incoterm</h4>
-                <Badge className="bg-blue-100 text-blue-800">
-                  {logistics.incoterm}
-                </Badge>
+                <p className="text-xs text-gray-600">Peso Bruto</p>
+                <p className="font-semibold text-gray-900">
+                  {logistics.grossWeight}
+                </p>
               </div>
             </div>
+          </div>
 
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                <Box className="h-4 w-4" />
-                Dimensiones del Contenedor
-              </h4>
-              <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="font-medium mb-1">
+          {/* Container Dimensions */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <Box className="h-4 w-4" />
+              Dimensiones del Contenedor
+            </h4>
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-600">Tipo:</span>
+                <span className="font-medium text-sm">
                   {logistics.containerDimensions.type}
-                </p>
-                <p className="text-sm text-gray-600">
+                </span>
+              </div>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-600">Dimensiones:</span>
+                <span className="font-medium text-sm">
                   {logistics.containerDimensions.length} ×{" "}
                   {logistics.containerDimensions.width} ×{" "}
                   {logistics.containerDimensions.height}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Peso Neto:</span>
+                <span className="font-medium text-sm">
+                  {logistics.netWeight}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Commercial Conditions */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <Truck className="h-4 w-4" />
+              Condiciones Comerciales
+            </h4>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Incoterm:</span>
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium">
+                  {logistics.incoterm}
+                </span>
+              </div>
+              <p className="text-sm text-gray-600">{logistics.conditions}</p>
+            </div>
+          </div>
+
+          {/* Delivery Time */}
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              Tiempo de Entrega
+            </h4>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="text-center bg-gray-50 p-3 rounded">
+                <p className="text-xs text-gray-600 mb-1">Producción</p>
+                <p className="font-semibold text-sm">
+                  {logistics.leadTime.production}
+                </p>
+              </div>
+              <div className="text-center bg-gray-50 p-3 rounded">
+                <p className="text-xs text-gray-600 mb-1">Envío</p>
+                <p className="font-semibold text-sm">
+                  {logistics.leadTime.shipping}
                 </p>
               </div>
             </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                Tiempos de Entrega
-              </h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Producción:</span>
-                  <span className="font-medium">
-                    {logistics.leadTime.production}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Envío:</span>
-                  <span className="font-medium">
-                    {logistics.leadTime.shipping}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Condiciones</h4>
-              <p className="text-sm text-gray-600">{logistics.conditions}</p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
