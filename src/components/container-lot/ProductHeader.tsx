@@ -77,14 +77,16 @@ export function ProductHeader({
           <Button
             size="icon"
             variant="outline"
-            className="bg-white border-gray-300 hover:bg-gray-50"
+            className="!bg-white border-gray-300 hover:!bg-gray-50 text-gray-600"
+            style={{ backgroundColor: "white !important" }}
           >
             <Heart className="h-5 w-5 text-gray-600" />
           </Button>
           <Button
             size="icon"
             variant="outline"
-            className="bg-white border-gray-300 hover:bg-gray-50"
+            className="!bg-white border-gray-300 hover:!bg-gray-50 text-gray-600"
+            style={{ backgroundColor: "white !important" }}
           >
             <Share2 className="h-5 w-5 text-gray-600" />
           </Button>
