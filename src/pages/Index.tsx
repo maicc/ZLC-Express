@@ -170,7 +170,7 @@ export default function Index() {
 
                 <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                   El Marketplace B2B de
-                  <span className="block text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text">
+                  <span className="block text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">
                     Centroamérica
                   </span>
                 </h1>
