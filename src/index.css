@@ -152,6 +152,6 @@
   }
 
   .bg-b2b-gray-lighter {
-    @apply bg-gray-50;
+    @apply bg-white;
   }
 }
