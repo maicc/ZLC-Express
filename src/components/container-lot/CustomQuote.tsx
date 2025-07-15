@@ -4,16 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { FileText, Send, Settings } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ChevronUp, ChevronDown, FileText, Calendar } from "lucide-react";
 
 interface CustomQuoteProps {
   availableSizes: string[];
@@ -26,39 +18,37 @@ export function CustomQuote({
 }: CustomQuoteProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [formData, setFormData] = useState({
-    containers: "",
+    companyName: "",
+    contactEmail: "",
+    estimatedQuantity: "",
     targetPrice: "",
-    sizeDistribution: {} as Record<string, string>,
-    colorDistribution: {} as Record<string, string>,
+    preferredSizes: [] as string[],
+    preferredColors: [] as string[],
+    sizeColorDistribution: "",
+    desiredDate: "",
     specialRequirements: "",
-    customLabeling: false,
-    customPackaging: false,
-    urgentDelivery: false,
   });
 
-  const handleSizeDistributionChange = (size: string, percentage: string) => {
+  const handleSizeChange = (size: string, checked: boolean) => {
     setFormData((prev) => ({
       ...prev,
-      sizeDistribution: {
-        ...prev.sizeDistribution,
-        [size]: percentage,
-      },
+      preferredSizes: checked
+        ? [...prev.preferredSizes, size]
+        : prev.preferredSizes.filter((s) => s !== size),
     }));
   };
 
-  const handleColorDistributionChange = (color: string, percentage: string) => {
+  const handleColorChange = (color: string, checked: boolean) => {
     setFormData((prev) => ({
       ...prev,
-      colorDistribution: {
-        ...prev.colorDistribution,
-        [color]: percentage,
-      },
+      preferredColors: checked
+        ? [...prev.preferredColors, color]
+        : prev.preferredColors.filter((c) => c !== color),
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Custom quote request:", formData);
   };
 
@@ -67,21 +57,24 @@ export function CustomQuote({
       <Card className="mb-8">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                ¿Necesita una cotización personalizada?
-              </h3>
-              <p className="text-gray-600">
-                Configure distribuciones específicas de tallas, colores, y
-                solicite precios especiales según sus necesidades.
-              </p>
+            <div className="flex items-center gap-3">
+              <FileText className="h-5 w-5 text-blue-600" />
+              <div>
+                <h3 className="font-semibold text-gray-900">
+                  Cotización Personalizada
+                </h3>
+                <p className="text-sm text-gray-600">
+                  ¿Necesita especificaciones diferentes? Solicite una cotización
+                  personalizada con sus requisitos específicos.
+                </p>
+              </div>
             </div>
             <Button
               onClick={() => setIsExpanded(true)}
-              className="bg-orange-600 hover:bg-orange-700"
+              variant="ghost"
+              className="flex items-center gap-1 text-gray-600"
             >
-              <Settings className="mr-2 h-4 w-4" />
-              Personalizar
+              <ChevronDown className="h-4 w-4" />
             </Button>
           </div>
         </CardContent>
@@ -92,160 +85,199 @@ export function CustomQuote({
   return (
     <Card className="mb-8">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <FileText className="h-5 w-5" />
-          Cotización Personalizada
-        </CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="flex items-center gap-2">
+            <FileText className="h-5 w-5" />
+            Cotización Personalizada
+          </CardTitle>
+          <Button
+            onClick={() => setIsExpanded(false)}
+            variant="ghost"
+            size="sm"
+          >
+            <ChevronUp className="h-4 w-4" />
+          </Button>
+        </div>
+        <p className="text-sm text-gray-600">
+          ¿Necesita especificaciones diferentes? Solicite una cotización
+          personalizada con sus requisitos específicos.
+        </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Basic Information */}
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="containers">Cantidad de Contenedores</Label>
-                <Input
-                  id="containers"
-                  type="number"
-                  placeholder="Ej: 5"
-                  value={formData.containers}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      containers: e.target.value,
-                    }))
-                  }
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="targetPrice">
-                  Precio Objetivo (por contenedor)
-                </Label>
-                <Input
-                  id="targetPrice"
-                  type="number"
-                  placeholder="Ej: 17000"
-                  value={formData.targetPrice}
-                  onChange={(e) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      targetPrice: e.target.value,
-                    }))
-                  }
-                />
-              </div>
-
-              {/* Special Requirements */}
-              <div className="space-y-3">
-                <Label>Requerimientos Especiales</Label>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="customLabeling"
-                      checked={formData.customLabeling}
-                      onCheckedChange={(checked) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          customLabeling: checked as boolean,
-                        }))
-                      }
-                    />
-                    <Label htmlFor="customLabeling" className="text-sm">
-                      Etiquetado personalizado
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="customPackaging"
-                      checked={formData.customPackaging}
-                      onCheckedChange={(checked) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          customPackaging: checked as boolean,
-                        }))
-                      }
-                    />
-                    <Label htmlFor="customPackaging" className="text-sm">
-                      Empaque personalizado
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="urgentDelivery"
-                      checked={formData.urgentDelivery}
-                      onCheckedChange={(checked) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          urgentDelivery: checked as boolean,
-                        }))
-                      }
-                    />
-                    <Label htmlFor="urgentDelivery" className="text-sm">
-                      Entrega urgente
-                    </Label>
-                  </div>
-                </div>
-              </div>
+            {/* Company Name */}
+            <div>
+              <Label htmlFor="companyName" className="text-sm font-medium">
+                Nombre de la Empresa <span className="text-red-500">*</span>
+              </Label>
+              <Input
+                id="companyName"
+                placeholder="Ingrese el nombre de su empresa"
+                value={formData.companyName}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    companyName: e.target.value,
+                  }))
+                }
+                className="mt-1"
+              />
             </div>
 
-            {/* Size and Color Distribution */}
-            <div className="space-y-4">
-              <div>
-                <Label className="mb-3 block">Distribución de Tallas (%)</Label>
-                <div className="grid grid-cols-3 gap-2">
-                  {availableSizes.map((size) => (
-                    <div key={size} className="space-y-1">
-                      <Label className="text-xs text-gray-600">{size}</Label>
-                      <Input
-                        type="number"
-                        placeholder="0"
-                        max="100"
-                        className="text-xs"
-                        value={formData.sizeDistribution[size] || ""}
-                        onChange={(e) =>
-                          handleSizeDistributionChange(size, e.target.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Contact Email */}
+            <div>
+              <Label htmlFor="contactEmail" className="text-sm font-medium">
+                Email de Contacto <span className="text-red-500">*</span>
+              </Label>
+              <Input
+                id="contactEmail"
+                type="email"
+                placeholder="contacto@empresa.com"
+                value={formData.contactEmail}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    contactEmail: e.target.value,
+                  }))
+                }
+                className="mt-1"
+              />
+            </div>
 
-              <div>
-                <Label className="mb-3 block">
-                  Distribución de Colores (%)
-                </Label>
-                <div className="grid grid-cols-2 gap-2">
-                  {availableColors.map((color) => (
-                    <div key={color} className="space-y-1">
-                      <Label className="text-xs text-gray-600">{color}</Label>
-                      <Input
-                        type="number"
-                        placeholder="0"
-                        max="100"
-                        className="text-xs"
-                        value={formData.colorDistribution[color] || ""}
-                        onChange={(e) =>
-                          handleColorDistributionChange(color, e.target.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Estimated Quantity */}
+            <div>
+              <Label
+                htmlFor="estimatedQuantity"
+                className="text-sm font-medium"
+              >
+                Cantidad Estimada (unidades){" "}
+                <span className="text-red-500">*</span>
+              </Label>
+              <Input
+                id="estimatedQuantity"
+                placeholder="ej. 50000"
+                value={formData.estimatedQuantity}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    estimatedQuantity: e.target.value,
+                  }))
+                }
+                className="mt-1"
+              />
+            </div>
+
+            {/* Target Price */}
+            <div>
+              <Label htmlFor="targetPrice" className="text-sm font-medium">
+                Precio Objetivo (USD por unidad)
+              </Label>
+              <Input
+                id="targetPrice"
+                placeholder="ej. 2.50"
+                value={formData.targetPrice}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    targetPrice: e.target.value,
+                  }))
+                }
+                className="mt-1"
+              />
             </div>
           </div>
 
-          {/* Additional Requirements */}
+          {/* Preferred Sizes */}
           <div>
-            <Label htmlFor="specialRequirements">
-              Requerimientos Adicionales
+            <Label className="text-sm font-medium mb-3 block">
+              Tallas Preferidas
+            </Label>
+            <div className="flex flex-wrap gap-3">
+              {availableSizes.map((size) => (
+                <label key={size} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={formData.preferredSizes.includes(size)}
+                    onChange={(e) => handleSizeChange(size, e.target.checked)}
+                    className="rounded border-gray-300"
+                  />
+                  <span className="text-sm">{size}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Preferred Colors */}
+          <div>
+            <Label className="text-sm font-medium mb-3 block">
+              Colores Preferidos
+            </Label>
+            <div className="flex flex-wrap gap-3">
+              {availableColors.map((color) => (
+                <label key={color} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={formData.preferredColors.includes(color)}
+                    onChange={(e) => handleColorChange(color, e.target.checked)}
+                    className="rounded border-gray-300"
+                  />
+                  <span className="text-sm">{color}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Size/Color Distribution */}
+          <div>
+            <Label htmlFor="distribution" className="text-sm font-medium">
+              Distribución de Tallas/Colores
+            </Label>
+            <Input
+              id="distribution"
+              placeholder="ej. 30% talla S, 40% talla M, 30% talla L; Colores: 50% negro, 30% blanco, 20% azul"
+              value={formData.sizeColorDistribution}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  sizeColorDistribution: e.target.value,
+                }))
+              }
+              className="mt-1"
+            />
+          </div>
+
+          {/* Desired Date */}
+          <div>
+            <Label htmlFor="desiredDate" className="text-sm font-medium">
+              Fecha Límite Deseada
+            </Label>
+            <Input
+              id="desiredDate"
+              type="date"
+              value={formData.desiredDate}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  desiredDate: e.target.value,
+                }))
+              }
+              className="mt-1"
+            />
+          </div>
+
+          {/* Special Requirements */}
+          <div>
+            <Label
+              htmlFor="specialRequirements"
+              className="text-sm font-medium"
+            >
+              Requisitos Especiales
             </Label>
             <Textarea
               id="specialRequirements"
-              placeholder="Describa cualquier requerimiento específico como certificaciones adicionales, modificaciones al producto, condiciones de entrega especiales, etc."
-              rows={4}
+              placeholder="ej. Etiquetado personalizado, empaque especial, certificaciones requeridas..."
+              rows={3}
               value={formData.specialRequirements}
               onChange={(e) =>
                 setFormData((prev) => ({
@@ -253,34 +285,29 @@ export function CustomQuote({
                   specialRequirements: e.target.value,
                 }))
               }
+              className="mt-1"
             />
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
-            <Button
-              type="submit"
-              className="bg-orange-600 hover:bg-orange-700 flex-1"
-            >
-              <Send className="mr-2 h-4 w-4" />
-              Enviar Solicitud de Cotización
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setIsExpanded(false)}
-            >
-              Cancelar
-            </Button>
-          </div>
-
-          {/* Info Notice */}
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-800">
-              <strong>Tiempo de respuesta:</strong> Recibirá una cotización
-              personalizada en un plazo de 24-48 horas hábiles. Nuestro equipo
-              de ventas se contactará con usted para confirmar los detalles y
-              proporcionar la mejor oferta posible.
+          {/* Submit Button */}
+          <div className="bg-gray-800 text-white p-4 rounded-lg">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <FileText className="h-5 w-5" />
+                <span className="font-medium">
+                  Enviar Solicitud de Cotización
+                </span>
+              </div>
+              <Button
+                type="submit"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                Enviar
+              </Button>
+            </div>
+            <p className="text-sm text-gray-300 mt-2">
+              El proveedor revisará sus requisitos y le enviará una cotización
+              personalizada
             </p>
           </div>
         </form>
