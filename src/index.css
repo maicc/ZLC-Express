@@ -93,6 +93,19 @@
     @apply border-border;
   }
 
+  /* Override any yellow backgrounds */
+  *[style*="rgb(255, 255, 0)"],
+  *[style*="yellow"],
+  *[style*="#ffff00"] {
+    background-color: white !important;
+  }
+
+  html,
+  body,
+  #root {
+    background-color: white !important;
+  }
+
   body {
     @apply bg-white text-foreground font-sans;
     background-color: white !important;
