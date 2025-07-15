@@ -195,7 +195,7 @@ export default function Index() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-white hover:bg-white/20 hover:text-white h-12 px-8"
+                    className="border-white text-black hover:bg-white/20 hover:text-white h-12 px-8"
                   >
                     Ver Catálogo
                   </Button>
