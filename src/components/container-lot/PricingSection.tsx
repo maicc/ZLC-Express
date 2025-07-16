@@ -43,28 +43,28 @@ export function PricingSection({
   const currentDiscount = getCurrentDiscount();
 
   return (
-    <Card className="mb-8">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <DollarSign className="h-5 w-5" />
+    <Card className="mb-8 bg-white border border-gray-200 shadow-sm">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-2 text-gray-900 text-lg font-semibold">
+          <DollarSign className="h-5 w-5 text-gray-700" />
           Precios y Descuentos
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+      <CardContent className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Base Pricing */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-2">
+            <h4 className="text-sm font-medium text-gray-600 mb-2">
               Precio por Contenedor
             </h4>
-            <div className="text-3xl font-bold text-blue-600 mb-1">
+            <div className="text-2xl font-bold text-blue-600">
               USD {pricing.pricePerContainer.toLocaleString()}
             </div>
           </div>
 
           {/* Unit Price */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-2">
+            <h4 className="text-sm font-medium text-gray-600 mb-2">
               Precio Unitario Estimado
             </h4>
             <div className="text-lg font-semibold text-gray-900">
