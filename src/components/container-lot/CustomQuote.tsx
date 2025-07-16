@@ -214,25 +214,23 @@ export function CustomQuote({
             </Label>
             <div className="flex flex-wrap gap-2">
               {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
-                <Button
+                <button
                   key={size}
                   type="button"
-                  variant="outline"
-                  size="sm"
                   onClick={() =>
                     handleSizeChange(
                       size,
                       !formData.preferredSizes.includes(size),
                     )
                   }
-                  className={`h-8 px-3 text-sm border-gray-300 ${
+                  className={`px-4 py-2 text-sm rounded-md transition-colors ${
                     formData.preferredSizes.includes(size)
-                      ? "bg-gray-100 border-gray-400"
-                      : "bg-white hover:bg-gray-50"
+                      ? "bg-gray-200 text-gray-900"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
                   {size}
-                </Button>
+                </button>
               ))}
             </div>
           </div>
