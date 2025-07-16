@@ -180,6 +180,7 @@ const App = () => (
                       </div>
                     }
                   />
+                  <Route path="/pricing-demo" element={<PricingDemo />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
