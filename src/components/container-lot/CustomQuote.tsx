@@ -246,10 +246,13 @@ export function CustomQuote({
 
           {/* Size/Color Distribution */}
           <div>
-            <Label htmlFor="distribution" className="text-sm font-medium">
+            <Label
+              htmlFor="distribution"
+              className="text-sm font-medium text-gray-700"
+            >
               Distribución de Tallas/Colores
             </Label>
-            <Input
+            <Textarea
               id="distribution"
               placeholder="ej. 30% talla S, 40% talla M, 30% talla L; Colores: 50% negro, 30% blanco, 20% azul"
               value={formData.sizeColorDistribution}
@@ -259,13 +262,17 @@ export function CustomQuote({
                   sizeColorDistribution: e.target.value,
                 }))
               }
-              className="mt-1"
+              className="mt-1 border-gray-300 focus:border-blue-500"
+              rows={2}
             />
           </div>
 
           {/* Desired Date */}
           <div>
-            <Label htmlFor="desiredDate" className="text-sm font-medium">
+            <Label
+              htmlFor="desiredDate"
+              className="text-sm font-medium text-gray-700"
+            >
               Fecha Límite Deseada
             </Label>
             <Input
@@ -278,7 +285,7 @@ export function CustomQuote({
                   desiredDate: e.target.value,
                 }))
               }
-              className="mt-1"
+              className="mt-1 border-gray-300 focus:border-blue-500"
             />
           </div>
 
@@ -286,14 +293,14 @@ export function CustomQuote({
           <div>
             <Label
               htmlFor="specialRequirements"
-              className="text-sm font-medium"
+              className="text-sm font-medium text-gray-700"
             >
               Requisitos Especiales
             </Label>
             <Textarea
               id="specialRequirements"
               placeholder="ej. Etiquetado personalizado, empaque especial, certificaciones requeridas..."
-              rows={3}
+              rows={4}
               value={formData.specialRequirements}
               onChange={(e) =>
                 setFormData((prev) => ({
@@ -301,7 +308,7 @@ export function CustomQuote({
                   specialRequirements: e.target.value,
                 }))
               }
-              className="mt-1"
+              className="mt-1 border-gray-300 focus:border-blue-500"
             />
           </div>
 
