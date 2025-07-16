@@ -54,13 +54,13 @@ export function CustomQuote({
 
   if (!isExpanded) {
     return (
-      <Card className="mb-8">
+      <Card className="mb-8 bg-white border border-gray-200 shadow-sm">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <FileText className="h-5 w-5 text-blue-600" />
+              <FileText className="h-5 w-5 text-gray-700" />
               <div>
-                <h3 className="font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900">
                   Cotización Personalizada
                 </h3>
                 <p className="text-sm text-gray-600">
@@ -72,7 +72,7 @@ export function CustomQuote({
             <Button
               onClick={() => setIsExpanded(true)}
               variant="ghost"
-              className="flex items-center gap-1 text-gray-600"
+              className="flex items-center gap-1 text-gray-600 hover:text-gray-700"
             >
               <ChevronDown className="h-4 w-4" />
             </Button>
