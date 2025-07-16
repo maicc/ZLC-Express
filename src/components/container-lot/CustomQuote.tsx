@@ -305,13 +305,15 @@ export function CustomQuote({
           <div>
             <Label
               htmlFor="desiredDate"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-gray-700 flex items-center gap-2"
             >
+              <Calendar className="h-4 w-4" />
               Fecha Límite Deseada
             </Label>
             <Input
               id="desiredDate"
               type="date"
+              placeholder="mm/dd/yyyy"
               value={formData.desiredDate}
               onChange={(e) =>
                 setFormData((prev) => ({
