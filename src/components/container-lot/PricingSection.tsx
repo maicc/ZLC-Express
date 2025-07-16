@@ -158,30 +158,32 @@ export function PricingSection({
               </div>
 
               {/* Calculation Summary */}
-              <div className="mt-6 bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <Calculator className="h-4 w-4 text-gray-600" />
-                  <span className="font-medium text-gray-900">
+                  <span className="text-sm font-medium text-gray-900">
                     Resumen del Cálculo
                   </span>
                 </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
                     <span className="text-gray-600">
                       Contenedores seleccionados:
                     </span>
-                    <span className="font-medium">{selectedContainers}</span>
+                    <span className="font-medium text-gray-900">
+                      {selectedContainers}
+                    </span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm">
                     <span className="text-gray-600">
                       Precio base por contenedor:
                     </span>
-                    <span className="font-medium">
+                    <span className="font-medium text-gray-900">
                       USD {pricing.pricePerContainer.toLocaleString()}
                     </span>
                   </div>
                   {currentDiscount && (
-                    <div className="flex justify-between text-green-600">
+                    <div className="flex justify-between text-sm text-green-600">
                       <span>
                         Descuento aplicado ({currentDiscount.discountPercentage}
                         %):
@@ -196,21 +198,25 @@ export function PricingSection({
                       </span>
                     </div>
                   )}
-                  <div className="border-t pt-2 flex justify-between font-semibold text-lg">
-                    <span>Total:</span>
-                    <span className="text-blue-600">
-                      USD{" "}
-                      {currentDiscount
-                        ? (
-                            calculateDiscountedPrice(
-                              1,
-                              currentDiscount.discountPercentage,
-                            ) * selectedContainers
-                          ).toLocaleString()
-                        : (
-                            pricing.pricePerContainer * selectedContainers
-                          ).toLocaleString()}
-                    </span>
+                  <div className="border-t border-gray-200 pt-2 mt-3">
+                    <div className="flex justify-between">
+                      <span className="text-base font-semibold text-gray-900">
+                        Total:
+                      </span>
+                      <span className="text-base font-bold text-blue-600">
+                        USD{" "}
+                        {currentDiscount
+                          ? (
+                              calculateDiscountedPrice(
+                                1,
+                                currentDiscount.discountPercentage,
+                              ) * selectedContainers
+                            ).toLocaleString()
+                          : (
+                              pricing.pricePerContainer * selectedContainers
+                            ).toLocaleString()}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
