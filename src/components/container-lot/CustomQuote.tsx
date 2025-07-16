@@ -345,22 +345,15 @@ export function CustomQuote({
           </div>
 
           {/* Submit Button */}
-          <div className="bg-gray-800 text-white p-4 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5" />
-                <span className="font-medium">
-                  Enviar Solicitud de Cotización
-                </span>
-              </div>
-              <Button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                Enviar
-              </Button>
-            </div>
-            <p className="text-sm text-gray-300 mt-2">
+          <div className="space-y-3">
+            <Button
+              type="submit"
+              className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 rounded-lg flex items-center justify-center gap-2 text-base font-medium"
+            >
+              <FileText className="h-5 w-5" />
+              Enviar Solicitud de Cotización
+            </Button>
+            <p className="text-sm text-gray-500 text-center">
               El proveedor revisará sus requisitos y le enviará una cotización
               personalizada
             </p>
