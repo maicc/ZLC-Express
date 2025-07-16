@@ -35,6 +35,12 @@ export default function BookingConfirmation() {
 
   const { quoteId, shippingData, selectedOption } = location.state || {};
 
+  // Redirect to shipping page if required data is missing
+  if (!selectedOption || !shippingData) {
+    navigate("/shipping");
+    return null;
+  }
+
   const [formData, setFormData] = useState({
     contactPerson: "",
     contactPhone: "",
