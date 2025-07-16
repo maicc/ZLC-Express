@@ -108,7 +108,7 @@ export function PricingSection({
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-white divide-y divide-gray-100">
                     {pricing.volumeDiscounts.map((discount, index) => {
                       const isActive =
                         selectedContainers >= discount.containers;
@@ -121,7 +121,7 @@ export function PricingSection({
                       return (
                         <tr
                           key={index}
-                          className={`${
+                          className={`hover:bg-gray-50 ${
                             isCurrent
                               ? "bg-green-50"
                               : isActive
