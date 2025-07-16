@@ -104,12 +104,15 @@ export function CustomQuote({
           personalizada con sus requisitos específicos.
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Company Name */}
             <div>
-              <Label htmlFor="companyName" className="text-sm font-medium">
+              <Label
+                htmlFor="companyName"
+                className="text-sm font-medium text-gray-700"
+              >
                 Nombre de la Empresa <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -122,13 +125,16 @@ export function CustomQuote({
                     companyName: e.target.value,
                   }))
                 }
-                className="mt-1"
+                className="mt-1 border-gray-300 focus:border-blue-500"
               />
             </div>
 
             {/* Contact Email */}
             <div>
-              <Label htmlFor="contactEmail" className="text-sm font-medium">
+              <Label
+                htmlFor="contactEmail"
+                className="text-sm font-medium text-gray-700"
+              >
                 Email de Contacto <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -142,7 +148,7 @@ export function CustomQuote({
                     contactEmail: e.target.value,
                   }))
                 }
-                className="mt-1"
+                className="mt-1 border-gray-300 focus:border-blue-500"
               />
             </div>
 
@@ -150,7 +156,7 @@ export function CustomQuote({
             <div>
               <Label
                 htmlFor="estimatedQuantity"
-                className="text-sm font-medium"
+                className="text-sm font-medium text-gray-700"
               >
                 Cantidad Estimada (unidades){" "}
                 <span className="text-red-500">*</span>
@@ -165,13 +171,16 @@ export function CustomQuote({
                     estimatedQuantity: e.target.value,
                   }))
                 }
-                className="mt-1"
+                className="mt-1 border-gray-300 focus:border-blue-500"
               />
             </div>
 
             {/* Target Price */}
             <div>
-              <Label htmlFor="targetPrice" className="text-sm font-medium">
+              <Label
+                htmlFor="targetPrice"
+                className="text-sm font-medium text-gray-700"
+              >
                 Precio Objetivo (USD por unidad)
               </Label>
               <Input
@@ -184,7 +193,7 @@ export function CustomQuote({
                     targetPrice: e.target.value,
                   }))
                 }
-                className="mt-1"
+                className="mt-1 border-gray-300 focus:border-blue-500"
               />
             </div>
           </div>
