@@ -123,6 +123,9 @@ export default function BookingConfirmation() {
   };
 
   const formatDate = (date: Date) => {
+    if (!date || isNaN(date.getTime())) {
+      return "Fecha no disponible";
+    }
     return new Intl.DateTimeFormat("es-ES", {
       weekday: "long",
       day: "2-digit",
