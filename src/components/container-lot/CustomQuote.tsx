@@ -83,17 +83,18 @@ export function CustomQuote({
   }
 
   return (
-    <Card className="mb-8">
-      <CardHeader>
+    <Card className="mb-8 bg-white border border-gray-200 shadow-sm">
+      <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
-          <CardTitle className="flex items-center gap-2">
-            <FileText className="h-5 w-5" />
+          <CardTitle className="flex items-center gap-2 text-lg font-semibold text-gray-900">
+            <FileText className="h-5 w-5 text-gray-700" />
             Cotización Personalizada
           </CardTitle>
           <Button
             onClick={() => setIsExpanded(false)}
             variant="ghost"
             size="sm"
+            className="text-gray-600 hover:text-gray-700"
           >
             <ChevronUp className="h-4 w-4" />
           </Button>
