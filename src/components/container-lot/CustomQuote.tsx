@@ -261,10 +261,10 @@ export function CustomQuote({
                         !formData.preferredColors.includes(color),
                       )
                     }
-                    className={`px-4 py-2 text-sm rounded-md transition-colors ${
+                    className={`px-4 py-2 text-sm rounded-md border transition-colors ${
                       formData.preferredColors.includes(color)
-                        ? "bg-gray-200 text-gray-900"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        ? "bg-blue-600 border-blue-600 text-white hover:bg-blue-700"
+                        : "bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200 hover:border-gray-400"
                     }`}
                   >
                     {color}
