@@ -239,24 +239,42 @@ export function CustomQuote({
 
           {/* Preferred Colors */}
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-3 block">
+            <Label className="text-sm font-medium text-gray-700 mb-3 block flex items-center gap-2">
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+              </svg>
               Colores Preferidos
             </Label>
-            <div className="flex flex-wrap gap-4">
-              {availableColors.map((color) => (
-                <label
-                  key={color}
-                  className="flex items-center space-x-2 cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    checked={formData.preferredColors.includes(color)}
-                    onChange={(e) => handleColorChange(color, e.target.checked)}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="text-sm text-gray-700">{color}</span>
-                </label>
-              ))}
+            <div className="flex flex-wrap gap-2">
+              {["Negro", "Blanco", "Gris", "Azul Marino", "Rojo", "Verde"].map(
+                (color) => (
+                  <Button
+                    key={color}
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      handleColorChange(
+                        color,
+                        !formData.preferredColors.includes(color),
+                      )
+                    }
+                    className={`h-8 px-3 text-sm border-gray-300 ${
+                      formData.preferredColors.includes(color)
+                        ? "bg-gray-100 border-gray-400"
+                        : "bg-white hover:bg-gray-50"
+                    }`}
+                  >
+                    {color}
+                  </Button>
+                ),
+              )}
             </div>
           </div>
 
