@@ -223,10 +223,10 @@ export function CustomQuote({
                       !formData.preferredSizes.includes(size),
                     )
                   }
-                  className={`px-4 py-2 text-sm rounded-md transition-colors ${
+                  className={`px-4 py-2 text-sm rounded-md border transition-colors ${
                     formData.preferredSizes.includes(size)
-                      ? "bg-gray-200 text-gray-900"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-gray-100 border-gray-300 text-gray-900"
+                      : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400"
                   }`}
                 >
                   {size}
