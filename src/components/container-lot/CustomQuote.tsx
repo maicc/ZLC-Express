@@ -200,23 +200,44 @@ export function CustomQuote({
 
           {/* Preferred Sizes */}
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-3 block">
+            <Label className="text-sm font-medium text-gray-700 mb-3 block flex items-center gap-2">
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 12h8" />
+              </svg>
               Tallas Preferidas
             </Label>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
               {availableSizes.map((size) => (
-                <label
+                <Button
                   key={size}
-                  className="flex items-center space-x-2 cursor-pointer"
+                  type="button"
+                  variant={
+                    formData.preferredSizes.includes(size)
+                      ? "default"
+                      : "outline"
+                  }
+                  size="sm"
+                  onClick={() =>
+                    handleSizeChange(
+                      size,
+                      !formData.preferredSizes.includes(size),
+                    )
+                  }
+                  className={`h-8 px-3 text-sm ${
+                    formData.preferredSizes.includes(size)
+                      ? "bg-blue-600 text-white"
+                      : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                  }`}
                 >
-                  <input
-                    type="checkbox"
-                    checked={formData.preferredSizes.includes(size)}
-                    onChange={(e) => handleSizeChange(size, e.target.checked)}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="text-sm text-gray-700">{size}</span>
-                </label>
+                  {size}
+                </Button>
               ))}
             </div>
           </div>
