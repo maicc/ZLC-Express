@@ -74,11 +74,11 @@ export function PricingSection({
         </div>
 
         {/* Volume Discounts Toggle */}
-        <div className="border-t pt-4">
+        <div>
           <Button
             variant="ghost"
             onClick={() => setShowDiscounts(!showDiscounts)}
-            className="flex items-center gap-2 p-0 h-auto text-left font-semibold"
+            className="flex items-center gap-2 p-0 h-auto text-left font-medium text-gray-900 hover:text-gray-700"
           >
             {showDiscounts ? (
               <ChevronUp className="h-4 w-4" />
@@ -89,21 +89,21 @@ export function PricingSection({
           </Button>
 
           {showDiscounts && (
-            <div className="mt-4">
-              <div className="overflow-hidden rounded-lg border">
+            <div className="mt-4 space-y-4">
+              <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
                 <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-200">
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                         Contenedores
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                         Descuento
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                         Precio c/u
                       </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
                         Estado
                       </th>
                     </tr>
