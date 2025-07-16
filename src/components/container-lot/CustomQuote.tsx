@@ -209,20 +209,15 @@ export function CustomQuote({
                 strokeWidth="2"
               >
                 <circle cx="12" cy="12" r="10" />
-                <path d="M8 12h8" />
               </svg>
               Tallas Preferidas
             </Label>
             <div className="flex flex-wrap gap-2">
-              {availableSizes.map((size) => (
+              {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
                 <Button
                   key={size}
                   type="button"
-                  variant={
-                    formData.preferredSizes.includes(size)
-                      ? "default"
-                      : "outline"
-                  }
+                  variant="outline"
                   size="sm"
                   onClick={() =>
                     handleSizeChange(
@@ -230,10 +225,10 @@ export function CustomQuote({
                       !formData.preferredSizes.includes(size),
                     )
                   }
-                  className={`h-8 px-3 text-sm ${
+                  className={`h-8 px-3 text-sm border-gray-300 ${
                     formData.preferredSizes.includes(size)
-                      ? "bg-blue-600 text-white"
-                      : "bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                      ? "bg-gray-100 border-gray-400"
+                      : "bg-white hover:bg-gray-50"
                   }`}
                 >
                   {size}
