@@ -200,19 +200,22 @@ export function CustomQuote({
 
           {/* Preferred Sizes */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">
+            <Label className="text-sm font-medium text-gray-700 mb-3 block">
               Tallas Preferidas
             </Label>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4">
               {availableSizes.map((size) => (
-                <label key={size} className="flex items-center space-x-2">
+                <label
+                  key={size}
+                  className="flex items-center space-x-2 cursor-pointer"
+                >
                   <input
                     type="checkbox"
                     checked={formData.preferredSizes.includes(size)}
                     onChange={(e) => handleSizeChange(size, e.target.checked)}
-                    className="rounded border-gray-300"
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-sm">{size}</span>
+                  <span className="text-sm text-gray-700">{size}</span>
                 </label>
               ))}
             </div>
@@ -220,19 +223,22 @@ export function CustomQuote({
 
           {/* Preferred Colors */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">
+            <Label className="text-sm font-medium text-gray-700 mb-3 block">
               Colores Preferidos
             </Label>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4">
               {availableColors.map((color) => (
-                <label key={color} className="flex items-center space-x-2">
+                <label
+                  key={color}
+                  className="flex items-center space-x-2 cursor-pointer"
+                >
                   <input
                     type="checkbox"
                     checked={formData.preferredColors.includes(color)}
                     onChange={(e) => handleColorChange(color, e.target.checked)}
-                    className="rounded border-gray-300"
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-sm">{color}</span>
+                  <span className="text-sm text-gray-700">{color}</span>
                 </label>
               ))}
             </div>
