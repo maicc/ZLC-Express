@@ -252,25 +252,23 @@ export function CustomQuote({
             <div className="flex flex-wrap gap-2">
               {["Negro", "Blanco", "Gris", "Azul Marino", "Rojo", "Verde"].map(
                 (color) => (
-                  <Button
+                  <button
                     key={color}
                     type="button"
-                    variant="outline"
-                    size="sm"
                     onClick={() =>
                       handleColorChange(
                         color,
                         !formData.preferredColors.includes(color),
                       )
                     }
-                    className={`h-8 px-3 text-sm border-gray-300 ${
+                    className={`px-4 py-2 text-sm rounded-md transition-colors ${
                       formData.preferredColors.includes(color)
-                        ? "bg-gray-100 border-gray-400"
-                        : "bg-white hover:bg-gray-50"
+                        ? "bg-gray-200 text-gray-900"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
                     {color}
-                  </Button>
+                  </button>
                 ),
               )}
             </div>
